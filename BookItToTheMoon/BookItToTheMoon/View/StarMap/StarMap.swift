@@ -35,7 +35,7 @@ class StarMap : UIScrollView {
 		
 		self.delegate = self
 	}
-	
+    
 	func setStartingPos(start : CGPoint) {
 		self.currentPos = start
 	}
