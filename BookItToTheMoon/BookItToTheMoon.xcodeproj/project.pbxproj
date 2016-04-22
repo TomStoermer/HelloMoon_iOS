@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50555E8C1CCA8C520045D66C /* StarMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50555E8B1CCA8C520045D66C /* StarMap.swift */; };
 		C4FD55AF1CCA73DE009C68D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FD55AE1CCA73DE009C68D8 /* AppDelegate.swift */; };
 		C4FD55B11CCA73DE009C68D8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FD55B01CCA73DE009C68D8 /* ViewController.swift */; };
 		C4FD55B41CCA73DE009C68D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4FD55B21CCA73DE009C68D8 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		50555E8B1CCA8C520045D66C /* StarMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StarMap.swift; path = View/StarMap/StarMap.swift; sourceTree = "<group>"; };
 		C4FD55AB1CCA73DE009C68D8 /* BookItToTheMoon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookItToTheMoon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4FD55AE1CCA73DE009C68D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4FD55B01CCA73DE009C68D8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +37,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		50555E891CCA8C2D0045D66C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				50555E8A1CCA8C340045D66C /* StarMap */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		50555E8A1CCA8C340045D66C /* StarMap */ = {
+			isa = PBXGroup;
+			children = (
+				50555E8B1CCA8C520045D66C /* StarMap.swift */,
+			);
+			name = StarMap;
+			sourceTree = "<group>";
+		};
 		C4FD55A21CCA73DE009C68D8 = {
 			isa = PBXGroup;
 			children = (
@@ -54,6 +72,7 @@
 		C4FD55AD1CCA73DE009C68D8 /* BookItToTheMoon */ = {
 			isa = PBXGroup;
 			children = (
+				50555E891CCA8C2D0045D66C /* View */,
 				C4FD55AE1CCA73DE009C68D8 /* AppDelegate.swift */,
 				C4FD55B01CCA73DE009C68D8 /* ViewController.swift */,
 				C4FD55B21CCA73DE009C68D8 /* Main.storyboard */,
@@ -135,6 +154,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50555E8C1CCA8C520045D66C /* StarMap.swift in Sources */,
 				C4FD55B11CCA73DE009C68D8 /* ViewController.swift in Sources */,
 				C4FD55AF1CCA73DE009C68D8 /* AppDelegate.swift in Sources */,
 			);
