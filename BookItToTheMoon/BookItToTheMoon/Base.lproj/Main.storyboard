@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x2q-g3-IA4" customClass="StarMap" customModule="BookItToTheMoon" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </scrollView>
                         </subviews>
@@ -26,8 +26,14 @@
                             <constraint firstItem="x2q-g3-IA4" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="SPY-Mk-ODk"/>
                             <constraint firstAttribute="trailing" secondItem="x2q-g3-IA4" secondAttribute="trailing" id="daA-sH-bDf"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="x2q-g3-IA4" secondAttribute="bottom" id="fyf-Hq-Kme"/>
+                            <constraint firstItem="x2q-g3-IA4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="jog-gG-tar"/>
                             <constraint firstItem="x2q-g3-IA4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="lrG-Iy-gxo"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="SPY-Mk-ODk"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

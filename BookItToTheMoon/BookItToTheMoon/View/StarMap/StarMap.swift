@@ -13,6 +13,7 @@ import UIKit
 class StarMap : UIScrollView {
 	
 	var currentPos = CGPoint(x: 0, y: 0)
+	var moonPosition = CGPoint(x: 0, y: 0)
 	
 	
 	init(frame: CGRect, startPos : CGPoint) {
@@ -44,6 +45,7 @@ class StarMap : UIScrollView {
 extension StarMap {
 	
 	func changePositon(vector2D : CGVector, length : Double) {
+		// factor in scaling
 		self.currentPos.x += vector2D.dx
 		self.currentPos.y += vector2D.dy
 		self.setContentOffset(self.currentPos, animated: true)
@@ -55,6 +57,7 @@ extension StarMap : UIScrollViewDelegate {
 	// maybe doch, because of the reset of the position
 	// 9 pictures  (half on the edges)
 	// when overriding edges -> reset to normalized position
+	// add scaling -
 	
 	func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
 		self.resetToOriginalMap()
@@ -66,6 +69,16 @@ extension StarMap : UIScrollViewDelegate {
 	
 	/// reset the position to some point on the original map, if necessary
 	func resetToOriginalMap() {
-		
+		if self.outOfBounds() {
+			self.contentOffset = currentOrgPos()
+		}
+	}
+	
+	func outOfBounds() -> Bool {
+		return false
+	}
+	
+	func currentOrgPos() -> CGPoint {
+		return CGPoint(x: 0, y: 0)
 	}
 }
