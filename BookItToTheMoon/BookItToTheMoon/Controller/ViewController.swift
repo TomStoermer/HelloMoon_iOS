@@ -36,6 +36,11 @@ class ViewController: UIViewController {
         // update moon label
         moonElevationAngleLabel.text = "Moon Elevation \(-38.66) °"
         moonHorizontalAngleLabel.text = "Moon Horizontal \(302.19) °"
+		
+		
+		// moon Test:
+		let moonCalc = MoonPosition()
+		print(moonCalc.getMoonPosition(NSDate(timeIntervalSinceNow: 0), lat: 51.333533, lng: 12.373037))
     }
     
     override func viewDidAppear(animated: Bool) {

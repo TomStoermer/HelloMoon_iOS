@@ -36,13 +36,13 @@ class StarMap : UIScrollView {
 		
 		self.delegate = self
 		
-		print("did inti: Middle: \(self.middleMap)")
+		//print("did inti: Middle: \(self.middleMap)")
 	}
 	
 	private func createBackgroundMap(image : UIImage) {
 		let imageView = UIImageView(image: image)
 		self.sizeOfOrgImage = imageView.frame.size
-		print("Org Img Size: \(self.sizeOfOrgImage)")
+		//print("Org Img Size: \(self.sizeOfOrgImage)")
 		
 		let contSize = CGSize(width: self.sizeOfOrgImage.width * 3, height: self.sizeOfOrgImage.height * 3)
 		
@@ -67,8 +67,7 @@ class StarMap : UIScrollView {
 			print("Added frame: \(newImageView.frame) - \(i % 3)")
 		}
 		
-		self.contentSize = contSize //imageView.frame.size
-		print("ContentSize Size: \(self.contentSize)")
+		self.contentSize = contSize
 		
 		let screenBounds = UIScreen.mainScreen().bounds
 		let middleCenter = self.convertPoint(self.middleMap.center, fromView: self.middleMap)
@@ -112,7 +111,6 @@ private extension StarMap {
 	/// reset the position to some point on the original map, if necessary
 	func resetToOriginalMap() {
 		let boolPointPair = self.outOfBounds()
-		print(boolPointPair, self.contentOffset)
 		if boolPointPair.bool {
 			if boolPointPair.point.x < 0 {
 				self.contentOffset.x += self.sizeOfOrgImage.width

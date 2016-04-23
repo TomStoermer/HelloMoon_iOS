@@ -9,6 +9,13 @@
 
 import Foundation
 
+struct MoonInfo {
+	var azimuth : Double
+	var altitude : Double
+	var distance : Double
+	var parallacticAngle : Double
+}
+
 
 class MoonPosition {
 
@@ -98,30 +105,26 @@ private extension MoonPosition {
 }
 
 extension MoonPosition {
-	func getMoonPosition(date:NSDate, lat:Double, lng:Double) -> [Double] {
+	func getMoonPosition(date:NSDate, lat:Double, lng:Double) -> MoonInfo {
 		
-		var lw  = radius * -lng,
-		phi = radius * lat,
-		d   = toDays(date),
+		let lw  = radius * -lng
+		let phi = radius * lat
+		let d   = toDays(date)
 		
-		c = moonCoords(d),
-		H = siderealTime(d, lw: lw) - c[1],
-		h = altitude(H, phi: phi, dec: c[2]),
-		pa = atan2(sin(H), tan(phi) * cos(c[2]) - sin(c[2]) * cos(H))
+		let c = moonCoords(d)
+		let H = siderealTime(d, lw: lw) - c[0]
+		var h = altitude(H, phi: phi, dec: c[1])
+		let pa = atan2(sin(H), tan(phi) * cos(c[1]) - sin(c[1]) * cos(H))
 		
 		h = h + astroRefraction(h); // altitude correction for refraction
 		
-		let azimuthCalc : Double = azimuth(H, phi: phi, dec: c[2])
+		let azimuthCalc : Double = azimuth(H, phi: phi, dec: c[1])
 		
-		let moon_position : [Double] = [azimuthCalc, h, c[3], pa]
+		let moon_position = MoonInfo(azimuth: azimuthCalc.radiansToDegrees,
+			altitude: h.radiansToDegrees,
+			distance: c[2],
+			parallacticAngle: pa.radiansToDegrees)
 		
 		return moon_position
-		
-		//return {
-		//    azimuth: azimuth(H, phi, c.dec),
-		//    altitude: h,
-		//    distance: c.dist,
-		//    parallacticAngle: pa
-		//}
 	}
 }
