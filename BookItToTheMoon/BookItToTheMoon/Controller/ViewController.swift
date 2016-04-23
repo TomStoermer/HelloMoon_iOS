@@ -93,7 +93,7 @@ extension ViewController {
 				
 				let dx = -CGFloat(gyroData.rotationRate.y) * motionMovingRate
 				let dy = -CGFloat(gyroData.rotationRate.x) * motionMovingRate
-				self.StarMap.changePositon(CGVector(dx: dx, dy: dy))
+				self!.starMap.changePositon(CGVector(dx: dx, dy: dy))
                 
             }
         }
