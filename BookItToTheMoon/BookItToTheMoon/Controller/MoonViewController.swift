@@ -54,6 +54,11 @@ class MoonViewController: PlanetViewController {
         
         animateGradientBackground()
         
+        // request facts
+        JSONRequester.requestMoonFacts { (moonFacts, error) in
+            print(moonFacts)
+        }
+        
     }
     
     private func animateGradientBackground() {
