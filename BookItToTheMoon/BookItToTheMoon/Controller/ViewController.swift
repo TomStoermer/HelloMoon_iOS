@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var moonElevationAngleLabel: UILabel!
     @IBOutlet weak var moonHorizontalAngleLabel: UILabel!
+	@IBOutlet weak var segmentedControl: UISegmentedControl!
     
     let presentPlanetSegueIdentifier = "presentPlanet"
 
@@ -32,7 +33,6 @@ class ViewController: UIViewController {
         motionManager.deviceMotionUpdateInterval = 1/40
         motionManager.gyroUpdateInterval = 1/60
         // Do any additional setup after loading the view, typically from a nib.
-		
 		
 		// moon Test:
 		let moonCalc = MoonPosition().getMoonPosition(NSDate(timeIntervalSinceNow: 0), lat: 51.333533, lng: 12.373037)
@@ -88,24 +88,22 @@ extension ViewController {
 			//print(deviceMotion.rotationRate)
             
             // update labels
-			let chioce = 3
-			
-			switch (chioce) {
+			switch (self!.segmentedControl.selectedSegmentIndex) {
 				
+			case 0:
+				self?.pitchValueLabel.text = "X/r: \(deviceMotion.rotationRate.x.format(".4")) °"
+				self?.yawValueLabel.text = "Y/o: \(deviceMotion.rotationRate.y.format(".4")) °"
+				self?.rollValueLabel.text = "Z/t: \(deviceMotion.rotationRate.z.format(".4")) °"
+			
 			case 1:
-				self?.pitchValueLabel.text = "X: \(deviceMotion.rotationRate.x.format(".5")) °"
-				self?.yawValueLabel.text = "Y: \(deviceMotion.rotationRate.y.format(".5")) °"
-				self?.rollValueLabel.text = "Z: \(deviceMotion.rotationRate.z.format(".5")) °"
+				self?.pitchValueLabel.text = "X/g: \(deviceMotion.gravity.x.format(".4"))"
+				self?.yawValueLabel.text = "Y/r: \(deviceMotion.gravity.y.format(".4"))"
+				self?.rollValueLabel.text = "Z/a: \(deviceMotion.gravity.z.format(".4"))"
 			
 			case 2:
-				self?.pitchValueLabel.text = "X: \(deviceMotion.gravity.x.format(".5"))"
-				self?.yawValueLabel.text = "Y: \(deviceMotion.gravity.y.format(".5"))"
-				self?.rollValueLabel.text = "Z: \(deviceMotion.gravity.z.format(".5"))"
-			
-			case 3:
-				self?.pitchValueLabel.text = "X: \(deviceMotion.attitude.pitch.radiansToDegrees.format(".5")) °"
-				self?.yawValueLabel.text = "Y: \(deviceMotion.attitude.roll.radiansToDegrees.format(".5")) °"
-				self?.rollValueLabel.text = "Z: \(deviceMotion.attitude.yaw.radiansToDegrees.format(".5")) °"
+				self?.pitchValueLabel.text = "Pitch: \(deviceMotion.attitude.pitch.radiansToDegrees.format(".4")) °"
+				self?.yawValueLabel.text = "Yaw: \(deviceMotion.attitude.yaw.radiansToDegrees.format(".4")) °"
+				self?.rollValueLabel.text = "Roll: \(deviceMotion.attitude.roll.radiansToDegrees.format(".4")) °"
 				
 			default:
 				break

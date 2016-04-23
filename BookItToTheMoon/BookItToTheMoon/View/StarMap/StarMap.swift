@@ -160,6 +160,10 @@ extension StarMap {
         self.resetToOriginalMap()
 	}
 	
+	func calcMovementFromAttitude(attitude : CMAttitude) {
+		self.contentOffset.x = self.middelContentOffset.x - (self.sizeOfOrgImage.width / 2) * CGFloat(attitude.roll.radiansToDegrees)
+	}
+	
 	func calcMovementFromAccel(accelRate : CMAcceleration) {
 		self.contentOffset.y = self.middelContentOffset.y - (self.sizeOfOrgImage.height / 2) * CGFloat(accelRate.z)
 	}
