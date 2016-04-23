@@ -34,7 +34,6 @@ class ViewController: UIViewController {
         // update moon label
         moonElevationAngleLabel.text = "Moon Elevation \(-38.66) °"
         moonHorizontalAngleLabel.text = "Moon Horizontal \(302.19) °"
-
     }
     
     override func viewDidAppear(animated: Bool) {

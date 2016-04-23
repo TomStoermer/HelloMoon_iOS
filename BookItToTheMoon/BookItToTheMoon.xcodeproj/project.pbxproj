@@ -13,6 +13,9 @@
 		C4FD55B41CCA73DE009C68D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4FD55B21CCA73DE009C68D8 /* Main.storyboard */; };
 		C4FD55B61CCA73DE009C68D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4FD55B51CCA73DE009C68D8 /* Assets.xcassets */; };
 		C4FD55B91CCA73DE009C68D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4FD55B71CCA73DE009C68D8 /* LaunchScreen.storyboard */; };
+		C4FD55C21CCB8B9D009C68D8 /* PlanetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FD55C11CCB8B9D009C68D8 /* PlanetDetailViewController.swift */; };
+		C4FD55C61CCB8D68009C68D8 /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FD55C51CCB8D68009C68D8 /* Planet.swift */; };
+		C4FD55C91CCB9091009C68D8 /* Moon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FD55C81CCB9091009C68D8 /* Moon.swift */; };
 		E0A959A81CCB821500B81FEE /* Model in Resources */ = {isa = PBXBuildFile; fileRef = E0A959A71CCB821500B81FEE /* Model */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +28,9 @@
 		C4FD55B51CCA73DE009C68D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4FD55B81CCA73DE009C68D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C4FD55BA1CCA73DE009C68D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4FD55C11CCB8B9D009C68D8 /* PlanetDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanetDetailViewController.swift; sourceTree = "<group>"; };
+		C4FD55C51CCB8D68009C68D8 /* Planet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Planet.swift; sourceTree = "<group>"; };
+		C4FD55C81CCB9091009C68D8 /* Moon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Moon.swift; sourceTree = "<group>"; };
 		E0A959A71CCB821500B81FEE /* Model */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Model; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,12 +80,13 @@
 		C4FD55AD1CCA73DE009C68D8 /* BookItToTheMoon */ = {
 			isa = PBXGroup;
 			children = (
+				C4FD55C71CCB9042009C68D8 /* Assets */,
+				C4FD55C41CCB8D44009C68D8 /* Model */,
 				E0A959A71CCB821500B81FEE /* Model */,
 				C4FD55C01CCAA68A009C68D8 /* Controller */,
 				50555E891CCA8C2D0045D66C /* View */,
 				C4FD55AE1CCA73DE009C68D8 /* AppDelegate.swift */,
 				C4FD55B21CCA73DE009C68D8 /* Main.storyboard */,
-				C4FD55B51CCA73DE009C68D8 /* Assets.xcassets */,
 				C4FD55B71CCA73DE009C68D8 /* LaunchScreen.storyboard */,
 				C4FD55BA1CCA73DE009C68D8 /* Info.plist */,
 			);
@@ -90,8 +97,26 @@
 			isa = PBXGroup;
 			children = (
 				C4FD55B01CCA73DE009C68D8 /* ViewController.swift */,
+				C4FD55C11CCB8B9D009C68D8 /* PlanetDetailViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		C4FD55C41CCB8D44009C68D8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C4FD55C51CCB8D68009C68D8 /* Planet.swift */,
+				C4FD55C81CCB9091009C68D8 /* Moon.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C4FD55C71CCB9042009C68D8 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				C4FD55B51CCA73DE009C68D8 /* Assets.xcassets */,
+			);
+			name = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,8 +191,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4FD55C91CCB9091009C68D8 /* Moon.swift in Sources */,
 				50555E8C1CCA8C520045D66C /* StarMap.swift in Sources */,
 				C4FD55B11CCA73DE009C68D8 /* ViewController.swift in Sources */,
+				C4FD55C61CCB8D68009C68D8 /* Planet.swift in Sources */,
+				C4FD55C21CCB8B9D009C68D8 /* PlanetDetailViewController.swift in Sources */,
 				C4FD55AF1CCA73DE009C68D8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
