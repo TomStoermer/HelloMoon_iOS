@@ -139,3 +139,13 @@ private extension StarMap {
 		return (false, posToMid)
 	}
 }
+
+
+extension StarMap {
+	
+	// We Assume that South == 0/0
+	
+	func calcOffsetFromGyro() {
+		
+	}
+}

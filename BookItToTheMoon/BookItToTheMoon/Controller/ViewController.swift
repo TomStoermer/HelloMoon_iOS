@@ -84,7 +84,7 @@ extension ViewController {
                 return
             }
 			
-            print(deviceMotion.attitude)
+            print("Attitude: - \(deviceMotion.attitude)")
             
             print(deviceMotion.rotationRate)
             
@@ -130,7 +130,6 @@ extension ViewController {
 				let dx = -CGFloat(gyroData.rotationRate.y) * motionMovingRate
 				let dy = -CGFloat(gyroData.rotationRate.x) * motionMovingRate
 				self!.starMap.changePositon(CGVector(dx: dx, dy: dy))
-                
             }
         }
     }

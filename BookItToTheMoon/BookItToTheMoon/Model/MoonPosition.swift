@@ -19,7 +19,7 @@ struct MoonInfo {
 
 class MoonPosition {
 
-    var radius:Double = M_PI / 180
+    let radius:Double = M_PI / 180
     var e:Double = 0
     
     let dayMs : Double = 1000.0 * 60 * 60 * 24,
@@ -45,23 +45,24 @@ private extension MoonPosition {
     func toDays(date:NSDate) -> Double {
         return toJulian(date) - J2000
     }
-    
+	
+	/// geocentric ecliptic coordinates of the moon
 	func moonCoords(d:Double) -> [Double] {
 
-       let L = radius * (218.316 + 12.176396 * d), // ecliptic longitude
-           M = radius * (134.963 + 13.064993 * d), // mean anomaly
-           F = radius * (93.272  + 13.229350 * d), // mean distance
+		let L = radius * (218.316 + 12.176396 * d) // ecliptic longitude
+		let M = radius * (134.963 + 13.064993 * d) // mean anomaly
+		let F = radius * (93.272  + 13.229350 * d) // mean distance
            
-           l = L + radius * 6.289 * sin(M), // longitude
-           b = radius * 5.128 * sin(F),     // latitude
-           dt = 385001 - 20905 * cos(M);    // distance to the moon in km
+		let longitudeMoon = L + radius * 6.289 * sin(M) // longitude
+		let latitudeMoon = radius * 5.128 * sin(F)// latitude
+		let distance = 385001 - 20905 * cos(M)    // distance to the moon in km
+		
+		let right_ascenation:Double = rightAscenation(longitudeMoon, be: latitudeMoon)
+        let decl:Double = declination(longitudeMoon, be: latitudeMoon)
         
-           let right_ascenation:Double = rightAscenation(l, be: b)
-           let decl:Double = declination(l, be:b)
+		let moon_coords:[Double] = [right_ascenation, decl, distance]
         
-           let moon_coords:[Double] = [right_ascenation, decl, dt]
-        
-           return moon_coords
+		return moon_coords
 
     }
 
@@ -69,12 +70,10 @@ private extension MoonPosition {
         return atan2( sin(el) * cos(e) - tan(be) * sin(e), cos(el) )
     }
     
-    func declination(el:Double, be:Double) -> Double{
+    func declination(el : Double, be : Double) -> Double{
         return asin(sin(be) * cos(e) + cos(be) * sin(e) * sin(el) )
     }
-    
 	
-    
     func siderealTime(d:Double, lw:Double) -> Double {
         
         return radius * (280.16 + 360.9856235 * d) - lw
