@@ -46,8 +46,8 @@ class ViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        startDeviceMotion()
-        //        startDeviceGyro()
+//        startDeviceMotion()
+        startDeviceGyro()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -118,19 +118,19 @@ extension ViewController {
             // debug with labels
             self!.debugDeviceRotationWithGyroData(gyroData)
             
-            if fabs(gyroData.rotationRate.y) >= 0.1 {
-                
-                let targetX = self!.starMap.contentOffset.x - CGFloat(gyroData.rotationRate.y) * motionMovingRate
-                let targetY = self!.starMap.contentOffset.y - CGFloat(gyroData.rotationRate.x) * motionMovingRate
-                self!.starMap.contentOffset = CGPoint(x: targetX, y: targetY)
+//            if fabs(gyroData.rotationRate.y) >= 0.1 {
+//                
 //                let targetX = self!.starMap.contentOffset.x - CGFloat(gyroData.rotationRate.y) * motionMovingRate
 //                let targetY = self!.starMap.contentOffset.y - CGFloat(gyroData.rotationRate.x) * motionMovingRate
 //                self!.starMap.contentOffset = CGPoint(x: targetX, y: targetY)
-				
-				let dx = -CGFloat(gyroData.rotationRate.y) * motionMovingRate
-				let dy = -CGFloat(gyroData.rotationRate.x) * motionMovingRate
-				self!.starMap.changePositon(CGVector(dx: dx, dy: dy))
-            }
+////                let targetX = self!.starMap.contentOffset.x - CGFloat(gyroData.rotationRate.y) * motionMovingRate
+////                let targetY = self!.starMap.contentOffset.y - CGFloat(gyroData.rotationRate.x) * motionMovingRate
+////                self!.starMap.contentOffset = CGPoint(x: targetX, y: targetY)
+//				
+//				let dx = -CGFloat(gyroData.rotationRate.y) * motionMovingRate
+//				let dy = -CGFloat(gyroData.rotationRate.x) * motionMovingRate
+//				self!.starMap.changePositon(CGVector(dx: dx, dy: dy))
+//            }
 			
 			self?.starMap.calcMovementFromGyro(gyroData.rotationRate)
         }

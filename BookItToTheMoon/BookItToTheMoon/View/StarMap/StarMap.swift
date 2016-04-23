@@ -155,6 +155,7 @@ extension StarMap {
 		let vec = CGVector(dx: rotationAmount(rotationRate.x, horizontal: true), dy: rotationAmount(rotationRate.y, horizontal: false))
 		
 		self.changePositon(vec)
+        self.resetToOriginalMap()
 	}
 	
 	
