@@ -30,6 +30,7 @@
 		C4FD55ED1CCBDF11009C68D8 /* PlanetFactReasonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4FD55EB1CCBDF11009C68D8 /* PlanetFactReasonCell.xib */; };
 		C4FD55EF1CCBEF48009C68D8 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FD55EE1CCBEF48009C68D8 /* BaseCollectionViewCell.swift */; };
 		C4FD55F11CCBF219009C68D8 /* facts.json in Resources */ = {isa = PBXBuildFile; fileRef = C4FD55F01CCBF219009C68D8 /* facts.json */; };
+		C4FD55F41CCC1442009C68D8 /* AmbientSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = C4FD55F31CCC1442009C68D8 /* AmbientSound.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		C4FD55EB1CCBDF11009C68D8 /* PlanetFactReasonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanetFactReasonCell.xib; sourceTree = "<group>"; };
 		C4FD55EE1CCBEF48009C68D8 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		C4FD55F01CCBF219009C68D8 /* facts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = facts.json; sourceTree = "<group>"; };
+		C4FD55F31CCC1442009C68D8 /* AmbientSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = AmbientSound.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 		C4FD55AD1CCA73DE009C68D8 /* BookItToTheMoon */ = {
 			isa = PBXGroup;
 			children = (
+				C4FD55F21CCC142E009C68D8 /* Sound */,
 				C4FD55D71CCBB985009C68D8 /* Service */,
 				C4FD55CB1CCB937E009C68D8 /* Storyboard */,
 				C4FD55C71CCB9042009C68D8 /* Assets */,
@@ -191,6 +194,14 @@
 			path = View/PlanetFacts;
 			sourceTree = "<group>";
 		};
+		C4FD55F21CCC142E009C68D8 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				C4FD55F31CCC1442009C68D8 /* AmbientSound.wav */,
+			);
+			path = Sound;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -257,6 +268,7 @@
 				C4FD55B61CCA73DE009C68D8 /* Assets.xcassets in Resources */,
 				C4FD55CD1CCB9396009C68D8 /* PlanetDetail.storyboard in Resources */,
 				C4FD55B41CCA73DE009C68D8 /* Main.storyboard in Resources */,
+				C4FD55F41CCC1442009C68D8 /* AmbientSound.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

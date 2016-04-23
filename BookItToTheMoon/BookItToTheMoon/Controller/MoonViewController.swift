@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class MoonViewController: PlanetViewController {
 
@@ -16,6 +17,7 @@ class MoonViewController: PlanetViewController {
     @IBOutlet weak var planetDescriptionLabel: UILabel!
 
     let moon: Moon = Moon(moonPhase: .FullMoon, moonDistance: 375_000.0, moonFacts: [])
+    private var audioPlayer: AVAudioPlayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,13 @@ class MoonViewController: PlanetViewController {
         planetTitleLabel.alpha = 0.0
         planetDescriptionLabel.text = moon.planetDescription
         planetDescriptionLabel.alpha = 0.0
+        
+        // perpare audio player
+        if let ambientSoundFile = NSBundle.mainBundle().URLForResource("AmbientSound", withExtension: "wav") {
+            audioPlayer = try? AVAudioPlayer(contentsOfURL: ambientSoundFile)
+            audioPlayer?.volume = 0.6
+            audioPlayer?.numberOfLoops = -1
+        }
     
         // Do any additional setup after loading the view.
     }
@@ -44,14 +53,21 @@ class MoonViewController: PlanetViewController {
             }, completion: nil)
         
         // fade in title, description
-        UIView.animateWithDuration(0.5, delay: 1.5, options: [.CurveEaseInOut], animations: {
+        UIView.animateWithDuration(0.5, delay: 1.5, options: [.CurveEaseInOut], animations: { 
+            
             // fade in planet
             self.planetTitleLabel.alpha = 1.0
             self.planetDescriptionLabel.alpha = 0.8
-            }, completion: nil)
+            
+        }) { (completed: Bool) in
+            
+            // play sound
+            if self.audioPlayer?.playing == false {
+                self.audioPlayer?.play()
+            }
+        }
         
         // fade in details and other actions
-        
 //        animateGradientBackground()
         startPlanetRotation(planetImageView)
         
@@ -118,6 +134,10 @@ extension MoonViewController {
     
     @IBAction func closeBarButtonItemPressed(sender: UIBarButtonItem) {
         
+        // dismiss view controller
         self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+        
+        // stop playing sound
+        self.audioPlayer?.stop()
     }
 }
