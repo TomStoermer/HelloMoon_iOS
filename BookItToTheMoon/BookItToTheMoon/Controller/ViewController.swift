@@ -19,6 +19,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var moonElevationAngleLabel: UILabel!
     @IBOutlet weak var moonHorizontalAngleLabel: UILabel!
+    
+    let presentPlanetSegueIdentifier = "presentPlanet"
 
 
     // IMPORTANT: An app should create only a single instance of the CMMotionManager class
@@ -41,6 +43,14 @@ class ViewController: UIViewController {
         
         startDeviceMotion()
         //        startDeviceGyro()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        motionManager.stopDeviceMotionUpdates()
+        motionManager.stopGyroUpdates()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -171,5 +181,19 @@ extension ViewController {
 //        
 //        
 //    }
+    
+}
+
+
+
+
+// MARK: - IBActions 
+
+extension ViewController {
+    
+    @IBAction func presentPlanetButtonPressed(sender: UIButton) {
+        
+        performSegueWithIdentifier(presentPlanetSegueIdentifier, sender: nil)
+    }
     
 }
