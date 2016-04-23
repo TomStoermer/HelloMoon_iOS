@@ -163,7 +163,7 @@ extension StarMap {
 		
 		let fullAngle = 180.0
 		let angle = attitude.yaw.radiansToDegrees
-		let percent = abs(angle / fullAngle)		
+		let percent = abs(angle / fullAngle)
 		
 		if self.globeHalf > 0 {
 			let newPos = self.sizeOfOrgImage.width / 2.0 * CGFloat(percent)
@@ -176,7 +176,7 @@ extension StarMap {
 	}
 	
 	func calcMovementFromAccel(accelRate : CMAcceleration) {
-		self.contentOffset.y = self.middelContentOffset.y - (self.sizeOfOrgImage.height / 2) * CGFloat(accelRate.z) + self.sizeOfOrgImage.height
+		self.contentOffset.y = self.middelContentOffset.y - (self.sizeOfOrgImage.height / 2) * CGFloat(accelRate.z) - self.sizeOfOrgImage.height
 		self.globeHalf = accelRate.z
 	}
 	
