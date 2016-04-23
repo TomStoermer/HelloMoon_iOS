@@ -39,3 +39,22 @@ struct MoonFact: PlanetFact {
         return moonFactReason
     }
 }
+
+
+
+// MARK: Hashable
+
+extension MoonFact: Hashable {
+    
+    var hashValue: Int {
+        return moonFactHeadline.hashValue ^ moonFactReason.hashValue
+    }
+}
+
+
+
+// MARK: Equatable
+
+func ==(lhs: MoonFact, rhs: MoonFact) -> Bool {
+    return lhs.moonFactHeadline == rhs.moonFactHeadline && lhs.moonFactReason == rhs.moonFactReason
+}
