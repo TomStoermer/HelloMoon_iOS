@@ -76,7 +76,7 @@ struct Moon: Planet {
     }
     
     var planetDescription: String {
-        return "The Moon was probably made 4.5 billion years ago when a large object hit the Earth and blasted out rocks that came together to orbit round the Earth. They eventually melted together, cooled down and became the Moon. For another 500 million years pieces of rock kept striking aginst the surface of the Moon."
+        return "...was probably made 4.5 billion years ago when a large object hit the Earth and blasted out rocks that came together to orbit round the Earth. They eventually melted together, cooled down and became the Moon. For another 500 million years pieces of rock kept striking aginst the surface of the Moon."
     }
     
     var planetImage: UIImage {

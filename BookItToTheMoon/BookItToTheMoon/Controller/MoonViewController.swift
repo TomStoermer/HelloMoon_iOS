@@ -102,7 +102,7 @@ class MoonViewController: PlanetViewController {
 
 extension MoonViewController {
     
-    @IBAction func closeButtonPressed(sender: UIButton) {
+    @IBAction func closeBarButtonItemPressed(sender: UIBarButtonItem) {
         
         self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }

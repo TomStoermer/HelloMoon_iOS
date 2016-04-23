@@ -24,6 +24,7 @@
 		C4FD55D91CCBBB14009C68D8 /* JSONRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FD55D81CCBBB14009C68D8 /* JSONRequester.swift */; };
 		C4FD55DB1CCBBB59009C68D8 /* facts.json in Resources */ = {isa = PBXBuildFile; fileRef = C4FD55DA1CCBBB59009C68D8 /* facts.json */; };
 		C4FD55DD1CCBBECA009C68D8 /* MoonFact.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FD55DC1CCBBECA009C68D8 /* MoonFact.swift */; };
+		C4FD55E11CCBCA6D009C68D8 /* FactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FD55E01CCBCA6D009C68D8 /* FactsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		C4FD55D81CCBBB14009C68D8 /* JSONRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONRequester.swift; sourceTree = "<group>"; };
 		C4FD55DA1CCBBB59009C68D8 /* facts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = facts.json; sourceTree = "<group>"; };
 		C4FD55DC1CCBBECA009C68D8 /* MoonFact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoonFact.swift; sourceTree = "<group>"; };
+		C4FD55E01CCBCA6D009C68D8 /* FactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FactsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 			children = (
 				C4FD55C11CCB8B9D009C68D8 /* PlanetViewController.swift */,
 				C4FD55CE1CCB9ADD009C68D8 /* MoonViewController.swift */,
+				C4FD55E01CCBCA6D009C68D8 /* FactsViewController.swift */,
 			);
 			name = "Planet Detail";
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 				501327121CCBA1BA0094F084 /* Utility.swift in Sources */,
 				C4FD55D11CCBA797009C68D8 /* MoonPosition.swift in Sources */,
 				C4FD55C61CCB8D68009C68D8 /* Planet.swift in Sources */,
+				C4FD55E11CCBCA6D009C68D8 /* FactsViewController.swift in Sources */,
 				C4FD55CF1CCB9ADD009C68D8 /* MoonViewController.swift in Sources */,
 				C4FD55C21CCB8B9D009C68D8 /* PlanetViewController.swift in Sources */,
 				C4FD55AF1CCA73DE009C68D8 /* AppDelegate.swift in Sources */,
