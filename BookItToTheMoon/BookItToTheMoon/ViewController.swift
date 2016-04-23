@@ -8,27 +8,40 @@
 
 import UIKit
 import CoreMotion
+import GLKit
 
 class ViewController: UIViewController {
     
     @IBOutlet weak var starMap: StarMap!
+    @IBOutlet weak var rollValueLabel: UILabel!
+    @IBOutlet weak var pitchValueLabel: UILabel!
+    @IBOutlet weak var yawValueLabel: UILabel!
+    
+    @IBOutlet weak var moonElevationAngleLabel: UILabel!
+    @IBOutlet weak var moonHorizontalAngleLabel: UILabel!
+
+
     // IMPORTANT: An app should create only a single instance of the CMMotionManager class
     let motionManager = CMMotionManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        motionManager.deviceMotionUpdateInterval = 0.01
+        motionManager.deviceMotionUpdateInterval = 1/40
         motionManager.gyroUpdateInterval = 1/60
-        
         // Do any additional setup after loading the view, typically from a nib.
+        
+        // update moon label
+        moonElevationAngleLabel.text = "Moon Elevation \(-38.66) °"
+        moonHorizontalAngleLabel.text = "Moon Horizontal \(302.19) °"
+
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        startDeviceGyro()
-        
+        startDeviceMotion()
+        //        startDeviceGyro()
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,19 +64,20 @@ extension ViewController {
             print("WARNING: Device Motion is not available.")
             return
         }
-        
-        motionManager.startDeviceMotionUpdatesToQueue(NSOperationQueue.mainQueue()) { [weak self](deviceMotion: CMDeviceMotion?, error: NSError?) in
+        motionManager.startDeviceMotionUpdatesUsingReferenceFrame(.XMagneticNorthZVertical, toQueue: NSOperationQueue.mainQueue()) { [weak self](deviceMotion: CMDeviceMotion?, error: NSError?) in
             
             guard let deviceMotion = deviceMotion else {
                 return
             }
             
-            print(deviceMotion.attitude)
+            print(deviceMotion.rotationRate)
             
-            
+            // update labels
+            self?.pitchValueLabel.text = "X: \(deviceMotion.rotationRate.x) °"
+            self?.yawValueLabel.text = "Y: \(deviceMotion.rotationRate.y) °"
+            self?.rollValueLabel.text = "Z: \(deviceMotion.rotationRate.z) °"
             
         }
-        
     }
     
     func startDeviceGyro() {
@@ -85,15 +99,68 @@ extension ViewController {
                 return
             }
             
+            // debug with labels
+            self!.debugDeviceRotationWithGyroData(gyroData)
+            
             if fabs(gyroData.rotationRate.y) >= 0.1 {
                 
                 let targetX = self!.starMap.contentOffset.x - CGFloat(gyroData.rotationRate.y) * motionMovingRate
                 let targetY = self!.starMap.contentOffset.y - CGFloat(gyroData.rotationRate.x) * motionMovingRate
                 self!.starMap.contentOffset = CGPoint(x: targetX, y: targetY)
-                
             }
         }
+    }
+    
+    private func debugDeviceRotationWithGyroData(gyroData: CMGyroData) {
+        
+        // update labels
+        self.pitchValueLabel.text = "X: \(ceil((gyroData.rotationRate.x * 180.0 / M_PI))) °"
+        self.yawValueLabel.text = "Y: \(ceil((gyroData.rotationRate.y * 180.0 / M_PI))) °"
+        self.rollValueLabel.text = "Z: \(ceil((gyroData.rotationRate.z * 180.0 / M_PI))) °"
         
     }
+    
+}
+
+
+
+
+// MARK: - GLKit Calculations
+
+extension ViewController {
+    
+//    func calculate(view: UIView, attitude: CMAttitude) {
+//        
+//        // aspect
+//        let aspect  = fabs(CGRectGetWidth(view.frame) / CGRectGetHeight(view.frame))
+//        
+//        // projection matrix
+//        let projectionMatrix = GLKMatrix4MakePerspective(GLKMathDegreesToRadians(45.0), Float(aspect), 0.1, 100.0)
+//        let rotationMatrix = attitude.rotationMatrix
+//        
+//        //
+//        let camFromIMU = GLKMatrix4Make(Float(rotationMatrix.m11), Float(rotationMatrix.m12), Float(rotationMatrix.m13), 0,
+//                                        Float(rotationMatrix.m21), Float(rotationMatrix.m22), Float(rotationMatrix.m23), 0,
+//                                        Float(rotationMatrix.m31), Float(rotationMatrix.m32), Float(rotationMatrix.m33), 0,
+//                                        0,     0,     0,     1);
+//        
+//        let viewFromCam = GLKMatrix4Translate(GLKMatrix4Identity, 0, 0, 0)
+//        let imuFromModel = GLKMatrix4Identity
+//        let viewModel = GLKMatrix4Multiply(imuFromModel, GLKMatrix4Multiply(camFromIMU, viewFromCam))
+//        
+//        var isInvertible: Bool = true
+//        let modelView = GLKMatrix4Invert(viewModel, &isInvertible)
+//        
+//        // view port
+//        var viewport = UnsafeBufferPointer(start: <#T##UnsafePointer<Element>#>, count: <#T##Int#>)
+//        
+//        
+//        var success: Bool = false
+//        // center of the view
+//        let vector3 = GLKVector3Make(Float(CGRectGetMidX(view.frame)), Float(CGRectGetMidY(view.frame)), 1.0)
+//        let calculatedPoint = GLKMathUnproject(vector3, modelView, projectionMatrix, Int32(123), &success)
+//        
+//        
+//    }
     
 }
