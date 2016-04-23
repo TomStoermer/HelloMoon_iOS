@@ -11,8 +11,8 @@ import Foundation
 
 struct PlanetFact {
     
-    private let factHeadline: String
-    private let factReason: String
+    let factHeadline: String
+    let factReason: String
     
     init(jsonDictionary: NSDictionary) {
         

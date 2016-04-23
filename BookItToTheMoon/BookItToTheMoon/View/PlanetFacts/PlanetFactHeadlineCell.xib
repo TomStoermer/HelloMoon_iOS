@@ -27,6 +27,9 @@
                 <constraint firstItem="D3z-ey-Mny" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="24" id="eEO-5g-yGb"/>
             </constraints>
             <size key="customSize" width="358" height="111"/>
+            <connections>
+                <outlet property="headlineLabel" destination="D3z-ey-Mny" id="vi6-4n-PTN"/>
+            </connections>
             <point key="canvasLocation" x="316" y="402.5"/>
         </collectionViewCell>
     </objects>

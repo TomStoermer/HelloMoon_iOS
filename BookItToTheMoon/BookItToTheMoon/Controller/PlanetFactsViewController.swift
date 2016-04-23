@@ -36,10 +36,19 @@ class PlanetFactsViewController: PlanetViewController {
         super.viewDidLoad()
         
         // setup collectionView
+        collectionView.dataSource = self
+        collectionView.delegate = self
         collectionView.backgroundView = nil
         collectionView.backgroundColor = UIColor.clearColor()
 
-        // Do any additional setup after loading the view.
+        // register cells
+        let factHeadlineNib = UINib(nibName: "PlanetFactHeadlineCell", bundle: nil)
+        collectionView.registerNib(factHeadlineNib, forCellWithReuseIdentifier: "FactHeadlineCell")
+        
+        // prepare data source
+        JSONRequester.requestMoonFacts { (moonFacts, error) in
+            self.facts = moonFacts!
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -83,8 +92,8 @@ extension PlanetFactsViewController: UICollectionViewDataSource {
         
         switch Item(rawValue: indexPath.item)! {
         case .FactHeadline:
-            cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath)
-            configureFactHeadlineCell(cell, atIndexPath: indexPath)
+            cell = collectionView.dequeueReusableCellWithReuseIdentifier("FactHeadlineCell", forIndexPath: indexPath) as! PlanetFactHeadlineCell
+            configureFactHeadlineCell(cell as! PlanetFactHeadlineCell, atIndexPath: indexPath)
             
         case .FactReason:
             cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath)
@@ -94,14 +103,38 @@ extension PlanetFactsViewController: UICollectionViewDataSource {
         return cell
     }
     
-    private func configureFactHeadlineCell(cell: UICollectionViewCell, atIndexPath indexPath: NSIndexPath) {
+    private func configureFactHeadlineCell(cell: PlanetFactHeadlineCell, atIndexPath indexPath: NSIndexPath) {
         
-        
+        let planetFact = facts[indexPath.section]
+        cell.configureFactHeadline(planetFact.factHeadline)
         
     }
     
     private func configureFactReasonCell(cell: UICollectionViewCell, atIndexPath indexPath: NSIndexPath) {
         
+    }
+    
+}
+
+
+
+// MARK: - 
+
+extension PlanetFactsViewController: UICollectionViewDelegate {
+    
+    
+    
+}
+
+
+
+// MARK: - 
+
+extension PlanetFactsViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        
+        return CGSize(width: CGRectGetWidth(collectionView.frame), height: 180)
     }
     
 }

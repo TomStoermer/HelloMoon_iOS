@@ -51,6 +51,11 @@
                                 <action selector="closeBarButtonItemPressed:" destination="AbZ-nw-ZHI" id="AId-6C-I2e"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Facts" id="6eg-af-5l7">
+                            <connections>
+                                <segue destination="dc0-1R-uIv" kind="show" id="InT-Hd-xhB"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
@@ -62,6 +67,45 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vOA-XU-krF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1123" y="291"/>
+        </scene>
+        <!--Planet Facts View Controller-->
+        <scene sceneID="3Ma-A7-bCn">
+            <objects>
+                <viewController id="dc0-1R-uIv" customClass="PlanetFactsViewController" customModule="BookItToTheMoon" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="u7R-Q1-oUe"/>
+                        <viewControllerLayoutGuide type="bottom" id="Thr-5a-Gu1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BYC-La-c5c">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="a0e-dF-GZC">
+                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ijn-JC-KPf">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="a0e-dF-GZC" firstAttribute="leading" secondItem="BYC-La-c5c" secondAttribute="leading" id="AoR-cG-19e"/>
+                            <constraint firstItem="Thr-5a-Gu1" firstAttribute="top" secondItem="a0e-dF-GZC" secondAttribute="bottom" id="dqg-FL-t2r"/>
+                            <constraint firstAttribute="trailing" secondItem="a0e-dF-GZC" secondAttribute="trailing" id="nsn-uN-5ME"/>
+                            <constraint firstItem="a0e-dF-GZC" firstAttribute="top" secondItem="u7R-Q1-oUe" secondAttribute="bottom" id="ujv-eP-C81"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="a0e-dF-GZC" id="k14-dj-bYq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6YM-Iy-WUi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1831" y="291"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MGv-EH-YCq">

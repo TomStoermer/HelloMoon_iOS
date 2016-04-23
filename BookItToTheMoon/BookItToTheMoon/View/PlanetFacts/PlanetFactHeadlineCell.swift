@@ -9,11 +9,8 @@
 import UIKit
 
 class PlanetFactHeadlineCell: UICollectionViewCell {
-
-    
     
     @IBOutlet private weak var headlineLabel: UILabel!
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,4 +24,8 @@ class PlanetFactHeadlineCell: UICollectionViewCell {
         headlineLabel.textColor = UIColor.whiteColor()
     }
 
+    
+    func configureFactHeadline(factHeadline: String) {
+        headlineLabel.text = factHeadline
+    }
 }
