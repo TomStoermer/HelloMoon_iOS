@@ -51,6 +51,26 @@ class MoonViewController: PlanetViewController {
             }, completion: nil)
         
         // fade in details and other actions
+        
+        animateGradientBackground()
+        
+    }
+    
+    private func animateGradientBackground() {
+        
+        // set the values
+        let startingLocations = [NSNumber(float: 0.0), NSNumber(float: 0.8)]
+        let endingLocations = [NSNumber(float: 0.4), NSNumber(float: 1.0)]
+        
+        // update model layer to final point
+        backgroundGradient?.locations = endingLocations
+        
+        // animate location
+        let animation = CABasicAnimation(keyPath: "locations")
+        animation.fromValue = startingLocations
+        animation.duration = 5.0
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        backgroundGradient?.addAnimation(animation, forKey: "animateGradientLocation")
     }
 
     override func didReceiveMemoryWarning() {
@@ -80,7 +100,5 @@ extension MoonViewController {
     @IBAction func closeButtonPressed(sender: UIButton) {
         
         self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
-        
     }
-    
 }

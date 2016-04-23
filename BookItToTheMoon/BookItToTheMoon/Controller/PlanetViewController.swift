@@ -13,7 +13,7 @@ class PlanetViewController: UIViewController {
     
     
     // MARK: - Properties
-    private weak var backgroundGradient: CAGradientLayer?
+    weak var backgroundGradient: CAGradientLayer?
     private var topGradientColor: CGColor {
         return UIColor(colorLiteralRed: 60.0/255.0, green: 56.0/255.0, blue: 88.0/255.0, alpha: 1.0).CGColor
     }
