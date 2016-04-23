@@ -46,8 +46,8 @@ class ViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-//        startDeviceMotion()
-        startDeviceGyro()
+        startDeviceMotion()
+//        startDeviceGyro()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -89,9 +89,15 @@ extension ViewController {
             print(deviceMotion.rotationRate)
             
             // update labels
-            self?.pitchValueLabel.text = "X: \(deviceMotion.rotationRate.x.format(".5")) °"
-            self?.yawValueLabel.text = "Y: \(deviceMotion.rotationRate.y.format(".5")) °"
-            self?.rollValueLabel.text = "Z: \(deviceMotion.rotationRate.z.format(".5")) °"
+//            self?.pitchValueLabel.text = "X: \(deviceMotion.rotationRate.x.format(".5")) °"
+//            self?.yawValueLabel.text = "Y: \(deviceMotion.rotationRate.y.format(".5")) °"
+//            self?.rollValueLabel.text = "Z: \(deviceMotion.rotationRate.z.format(".5")) °"
+			
+			self?.pitchValueLabel.text = "X: \(deviceMotion.gravity.x.format(".5")) °"
+			self?.yawValueLabel.text = "Y: \(deviceMotion.gravity.y.format(".5")) °"
+			self?.rollValueLabel.text = "Z: \(deviceMotion.gravity.z.format(".5")) °"
+			
+			self?.starMap.calcMovementFromAccel(deviceMotion.gravity)
             
         }
     }
@@ -123,9 +129,6 @@ extension ViewController {
 //                let targetX = self!.starMap.contentOffset.x - CGFloat(gyroData.rotationRate.y) * motionMovingRate
 //                let targetY = self!.starMap.contentOffset.y - CGFloat(gyroData.rotationRate.x) * motionMovingRate
 //                self!.starMap.contentOffset = CGPoint(x: targetX, y: targetY)
-////                let targetX = self!.starMap.contentOffset.x - CGFloat(gyroData.rotationRate.y) * motionMovingRate
-////                let targetY = self!.starMap.contentOffset.y - CGFloat(gyroData.rotationRate.x) * motionMovingRate
-////                self!.starMap.contentOffset = CGPoint(x: targetX, y: targetY)
 //				
 //				let dx = -CGFloat(gyroData.rotationRate.y) * motionMovingRate
 //				let dy = -CGFloat(gyroData.rotationRate.x) * motionMovingRate

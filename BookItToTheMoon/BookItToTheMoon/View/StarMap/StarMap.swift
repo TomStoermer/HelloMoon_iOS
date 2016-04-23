@@ -158,6 +158,12 @@ extension StarMap {
         self.resetToOriginalMap()
 	}
 	
+	func calcMovementFromAccel(accelRate : CMAcceleration) {
+		let vec = CGVector(dx: rotationAmount(accelRate.x, horizontal: true), dy: rotationAmount(accelRate.y, horizontal: false))
+		
+		self.changePositon(vec)
+		self.resetToOriginalMap()
+	}
 	
 	private func rotationAmount(rotation : Double, horizontal: Bool) -> Double {
 		let degrees = rotation.radiansToDegrees
