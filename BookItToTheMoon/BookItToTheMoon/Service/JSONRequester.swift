@@ -20,7 +20,28 @@ class JSONRequester {
         return factsURL
     }
     
-    class func requestMoonFacts(factsURL factsURL: NSURL) {
+    class func requestMoonFacts(completion: (moonFacts: [MoonFact]?, error: NSError?) -> Void) {
         
+        // read data from file URL
+        guard let factsData = NSData(contentsOfURL: factsURL) else {
+            fatalError("Could not read facts data from factsURL \(factsURL)")
+        }
+        
+        // serialize local json data
+        let factsJsonData = try? NSJSONSerialization.JSONObjectWithData(factsData, options: .AllowFragments)
+        
+        // check the json value types
+        guard let jsonDictionary = factsJsonData as? NSDictionary, let facts = jsonDictionary["facts"] as? [NSDictionary] else {
+            fatalError("The returned facts.json is not valid.\n JSON content: \(factsJsonData)")
+        }
+        
+        // create the data models
+        let moonFacts = facts.map { (jsonDict: NSDictionary) -> MoonFact in
+            
+            // init MoonFact with json dictionary
+            return MoonFact(jsonDictionary: jsonDict)
+        }
+        
+        completion(moonFacts: moonFacts, error: nil)
     }
 }
