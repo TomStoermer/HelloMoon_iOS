@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  BookItToTheMoon
+
+  Created by Tom Störmer on 23.04.16.
+  Copyright © 2016 SpaceAppsChallenge. All rights reserved.
+*/
+
+MoonPhrase_NewMoon = "New Moon";
+MoonPhrase_Default = "DEFAULT VALUE";
