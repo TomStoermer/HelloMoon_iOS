@@ -19,6 +19,7 @@
 		C4FD55CD1CCB9396009C68D8 /* PlanetDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4FD55CC1CCB9396009C68D8 /* PlanetDetail.storyboard */; };
 		C4FD55CF1CCB9ADD009C68D8 /* MoonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FD55CE1CCB9ADD009C68D8 /* MoonViewController.swift */; };
 		C4FD55D11CCBA797009C68D8 /* MoonPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FD55D01CCBA797009C68D8 /* MoonPosition.swift */; };
+		C4FD55D41CCBABBA009C68D8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4FD55D61CCBABBA009C68D8 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		C4FD55CC1CCB9396009C68D8 /* PlanetDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PlanetDetail.storyboard; sourceTree = "<group>"; };
 		C4FD55CE1CCB9ADD009C68D8 /* MoonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoonViewController.swift; sourceTree = "<group>"; };
 		C4FD55D01CCBA797009C68D8 /* MoonPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoonPosition.swift; sourceTree = "<group>"; };
+		C4FD55D51CCBABBA009C68D8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				C4FD55AE1CCA73DE009C68D8 /* AppDelegate.swift */,
 				C4FD55B71CCA73DE009C68D8 /* LaunchScreen.storyboard */,
 				C4FD55BA1CCA73DE009C68D8 /* Info.plist */,
+				C4FD55D61CCBABBA009C68D8 /* Localizable.strings */,
 			);
 			path = BookItToTheMoon;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4FD55D41CCBABBA009C68D8 /* Localizable.strings in Resources */,
 				C4FD55B91CCA73DE009C68D8 /* LaunchScreen.storyboard in Resources */,
 				C4FD55B61CCA73DE009C68D8 /* Assets.xcassets in Resources */,
 				C4FD55CD1CCB9396009C68D8 /* PlanetDetail.storyboard in Resources */,
@@ -241,6 +245,14 @@
 				C4FD55B81CCA73DE009C68D8 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		C4FD55D61CCBABBA009C68D8 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C4FD55D51CCBABBA009C68D8 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
