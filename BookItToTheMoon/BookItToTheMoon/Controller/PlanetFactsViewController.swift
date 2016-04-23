@@ -40,10 +40,17 @@ class PlanetFactsViewController: PlanetViewController {
         collectionView.delegate = self
         collectionView.backgroundView = nil
         collectionView.backgroundColor = UIColor.clearColor()
-
+        
+        // flow layout
+        if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            flowLayout.estimatedItemSize = CGSize(width: 300, height: 80)
+        }
+        
         // register cells
         let factHeadlineNib = UINib(nibName: "PlanetFactHeadlineCell", bundle: nil)
+        let factReasonNib = UINib(nibName: "PlanetFactReasonCell", bundle: nil)
         collectionView.registerNib(factHeadlineNib, forCellWithReuseIdentifier: "FactHeadlineCell")
+        collectionView.registerNib(factReasonNib, forCellWithReuseIdentifier: "FactReasonCell")
         
         // prepare data source
         JSONRequester.requestMoonFacts { (moonFacts, error) in
@@ -83,7 +90,8 @@ extension PlanetFactsViewController: UICollectionViewDataSource {
         
         // one row if fact is not selected, two rows if fact is selected
         let factAtSection = facts[section]
-        return selectedFacts.contains(factAtSection) ? 2 : 1
+//        return selectedFacts.contains(factAtSection) ? 2 : 1
+        return 2
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -92,12 +100,12 @@ extension PlanetFactsViewController: UICollectionViewDataSource {
         
         switch Item(rawValue: indexPath.item)! {
         case .FactHeadline:
-            cell = collectionView.dequeueReusableCellWithReuseIdentifier("FactHeadlineCell", forIndexPath: indexPath) as! PlanetFactHeadlineCell
+            cell = collectionView.dequeueReusableCellWithReuseIdentifier("FactHeadlineCell", forIndexPath: indexPath)
             configureFactHeadlineCell(cell as! PlanetFactHeadlineCell, atIndexPath: indexPath)
             
         case .FactReason:
-            cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath)
-            configureFactReasonCell(cell, atIndexPath: indexPath)
+            cell = collectionView.dequeueReusableCellWithReuseIdentifier("FactReasonCell", forIndexPath: indexPath)
+            configureFactReasonCell(cell as! PlanetFactReasonCell, atIndexPath: indexPath)
         }
         
         return cell
@@ -110,8 +118,10 @@ extension PlanetFactsViewController: UICollectionViewDataSource {
         
     }
     
-    private func configureFactReasonCell(cell: UICollectionViewCell, atIndexPath indexPath: NSIndexPath) {
+    private func configureFactReasonCell(cell: PlanetFactReasonCell, atIndexPath indexPath: NSIndexPath) {
         
+        let planetFact = facts[indexPath.section]
+        cell.configureFactReason(planetFact.factReason)
     }
     
 }
@@ -132,9 +142,17 @@ extension PlanetFactsViewController: UICollectionViewDelegate {
 
 extension PlanetFactsViewController: UICollectionViewDelegateFlowLayout {
     
+//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+//        
+//        return CGSize(width: CGRectGetWidth(collectionView.frame), height: 180)
+//    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 12, left: 0, bottom: 12, right: 0)
+    }
+    
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        
-        return CGSize(width: CGRectGetWidth(collectionView.frame), height: 180)
+        return CGSize(width: CGRectGetWidth(collectionView.frame), height: 80)
     }
     
 }

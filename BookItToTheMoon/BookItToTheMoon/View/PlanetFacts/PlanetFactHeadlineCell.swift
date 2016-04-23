@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PlanetFactHeadlineCell: UICollectionViewCell {
+class PlanetFactHeadlineCell: BaseCollectionViewCell {
     
     @IBOutlet private weak var headlineLabel: UILabel!
     
@@ -16,16 +16,12 @@ class PlanetFactHeadlineCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        // cell
-        backgroundColor = UIColor.clearColor()
-        contentView.backgroundColor = UIColor.clearColor()
-        
         // label
         headlineLabel.textColor = UIColor.whiteColor()
     }
-
     
     func configureFactHeadline(factHeadline: String) {
         headlineLabel.text = factHeadline
     }
+    
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PlanetFactReasonCell: UICollectionViewCell {
+class PlanetFactReasonCell: BaseCollectionViewCell {
 
     @IBOutlet private weak var factReasonLabel: UILabel!
     
@@ -16,16 +16,12 @@ class PlanetFactReasonCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        // cell
-        backgroundColor = UIColor.clearColor()
-        contentView.backgroundColor = UIColor.clearColor()
-        
         // label
         factReasonLabel.textColor = UIColor.whiteColor()
     }
     
-    
     func configureFactReason(factReason: String) {
         factReasonLabel.text = factReason
     }
+
 }

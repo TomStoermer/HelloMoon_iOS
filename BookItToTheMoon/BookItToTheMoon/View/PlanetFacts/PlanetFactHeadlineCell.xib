@@ -12,7 +12,7 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="358" height="111"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You cannot breathe on the moon." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D3z-ey-Mny" userLabel="Headline">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You cannot breathe on the moon." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D3z-ey-Mny" userLabel="Headline">
                         <rect key="frame" x="24" y="16" width="310" height="61"/>
                         <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="26"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -22,9 +22,10 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="D3z-ey-Mny" secondAttribute="trailing" constant="24" id="6xd-Vs-0mL"/>
-                <constraint firstItem="D3z-ey-Mny" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="V8f-wJ-L7J"/>
-                <constraint firstItem="D3z-ey-Mny" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="24" id="eEO-5g-yGb"/>
+                <constraint firstAttribute="trailing" secondItem="D3z-ey-Mny" secondAttribute="trailing" constant="14" id="6xd-Vs-0mL"/>
+                <constraint firstItem="D3z-ey-Mny" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="V8f-wJ-L7J"/>
+                <constraint firstItem="D3z-ey-Mny" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="14" id="eEO-5g-yGb"/>
+                <constraint firstAttribute="bottom" secondItem="D3z-ey-Mny" secondAttribute="bottom" constant="4" id="i7o-Lv-cNz"/>
             </constraints>
             <size key="customSize" width="358" height="111"/>
             <connections>

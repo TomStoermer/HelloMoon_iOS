@@ -29,6 +29,7 @@
 		C4FD55E71CCBDECE009C68D8 /* PlanetFactHeadlineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4FD55E51CCBDECE009C68D8 /* PlanetFactHeadlineCell.xib */; };
 		C4FD55EC1CCBDF11009C68D8 /* PlanetFactReasonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FD55EA1CCBDF11009C68D8 /* PlanetFactReasonCell.swift */; };
 		C4FD55ED1CCBDF11009C68D8 /* PlanetFactReasonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4FD55EB1CCBDF11009C68D8 /* PlanetFactReasonCell.xib */; };
+		C4FD55EF1CCBEF48009C68D8 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FD55EE1CCBEF48009C68D8 /* BaseCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		C4FD55E51CCBDECE009C68D8 /* PlanetFactHeadlineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanetFactHeadlineCell.xib; sourceTree = "<group>"; };
 		C4FD55EA1CCBDF11009C68D8 /* PlanetFactReasonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanetFactReasonCell.swift; sourceTree = "<group>"; };
 		C4FD55EB1CCBDF11009C68D8 /* PlanetFactReasonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanetFactReasonCell.xib; sourceTree = "<group>"; };
+		C4FD55EE1CCBEF48009C68D8 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 		C4FD55E31CCBDE8B009C68D8 /* Planet Facts */ = {
 			isa = PBXGroup;
 			children = (
+				C4FD55EE1CCBEF48009C68D8 /* BaseCollectionViewCell.swift */,
 				C4FD55E41CCBDECE009C68D8 /* PlanetFactHeadlineCell.swift */,
 				C4FD55E51CCBDECE009C68D8 /* PlanetFactHeadlineCell.xib */,
 				C4FD55EA1CCBDF11009C68D8 /* PlanetFactReasonCell.swift */,
@@ -269,6 +272,7 @@
 				C4FD55D91CCBBB14009C68D8 /* JSONRequester.swift in Sources */,
 				C4FD55C91CCB9091009C68D8 /* Moon.swift in Sources */,
 				50555E8C1CCA8C520045D66C /* StarMap.swift in Sources */,
+				C4FD55EF1CCBEF48009C68D8 /* BaseCollectionViewCell.swift in Sources */,
 				C4FD55B11CCA73DE009C68D8 /* ViewController.swift in Sources */,
 				501327121CCBA1BA0094F084 /* Utility.swift in Sources */,
 				C4FD55E61CCBDECE009C68D8 /* PlanetFactHeadlineCell.swift in Sources */,
