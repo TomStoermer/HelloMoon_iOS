@@ -89,16 +89,15 @@ extension ViewController {
             
             // update labels
 			switch (self!.segmentedControl.selectedSegmentIndex) {
-				
 			case 0:
-				self?.pitchValueLabel.text = "X/r: \(deviceMotion.rotationRate.x.format(".4")) °"
-				self?.yawValueLabel.text = "Y/o: \(deviceMotion.rotationRate.y.format(".4")) °"
-				self?.rollValueLabel.text = "Z/t: \(deviceMotion.rotationRate.z.format(".4")) °"
+				self?.pitchValueLabel.text = "X: \(deviceMotion.rotationRate.x.radiansToDegrees.format(".4")) °"
+				self?.yawValueLabel.text = "Y: \(deviceMotion.rotationRate.y.radiansToDegrees.format(".4")) °"
+				self?.rollValueLabel.text = "Z: \(deviceMotion.rotationRate.z.radiansToDegrees.format(".4")) °"
 			
 			case 1:
-				self?.pitchValueLabel.text = "X/g: \(deviceMotion.gravity.x.format(".4"))"
-				self?.yawValueLabel.text = "Y/r: \(deviceMotion.gravity.y.format(".4"))"
-				self?.rollValueLabel.text = "Z/a: \(deviceMotion.gravity.z.format(".4"))"
+				self?.pitchValueLabel.text = "X: \(deviceMotion.gravity.x.format(".4"))"
+				self?.yawValueLabel.text = "Y: \(deviceMotion.gravity.y.format(".4"))"
+				self?.rollValueLabel.text = "Z: \(deviceMotion.gravity.z.format(".4"))"
 			
 			case 2:
 				self?.pitchValueLabel.text = "Pitch: \(deviceMotion.attitude.pitch.radiansToDegrees.format(".4")) °"
@@ -110,6 +109,7 @@ extension ViewController {
 			}
 			
 			self?.starMap.calcMovementFromAccel(deviceMotion.gravity)
+			self?.starMap.calcMovementFromAttitude(deviceMotion.attitude)
             
         }
     }

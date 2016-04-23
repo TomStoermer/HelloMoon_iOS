@@ -21,6 +21,7 @@ class StarMap : UIScrollView {
 	var currentPos = CGPoint(x: 0, y: 0)
 	var moonPosition = CGPoint(x: 0, y: 0)
 	var middelContentOffset = CGPoint(x: 0, y: 0)
+	var globeHalf : Double = 0
 	
 	private var sizeOfOrgImage = CGSize(width: 0, height: 0)
 	private var middleMap : UIImageView = UIImageView()
@@ -151,8 +152,6 @@ extension StarMap {
 	// y -> pos change -> rotate phone left
 	// z -> pos change -> tilting phone left
 	
-	
-	
 	func calcMovementFromGyro(rotationRate : CMRotationRate) {
 		let vec = CGVector(dx: rotationAmount(rotationRate.x, horizontal: true), dy: rotationAmount(rotationRate.y, horizontal: false))
 		
@@ -161,11 +160,23 @@ extension StarMap {
 	}
 	
 	func calcMovementFromAttitude(attitude : CMAttitude) {
-		self.contentOffset.x = self.middelContentOffset.x - (self.sizeOfOrgImage.width / 2) * CGFloat(attitude.roll.radiansToDegrees)
+		
+		let fullAngle = 180.0
+		let angle = attitude.roll.radiansToDegrees
+		let percent = abs(fullAngle / 100.0 * angle)
+		let newPos = self.sizeOfOrgImage.width / 2.0 * CGFloat(percent)
+		
+		if self.globeHalf > 0 {
+			self.contentOffset.x = self.middelContentOffset.x + newPos * (angle < 0 ? -1 : 1)
+		}
+		else if self.globeHalf < 0 {
+			self.contentOffset.x = self.middelContentOffset.x + newPos * (angle < 0 ? 1 : -1)
+		}
 	}
 	
 	func calcMovementFromAccel(accelRate : CMAcceleration) {
-		self.contentOffset.y = self.middelContentOffset.y - (self.sizeOfOrgImage.height / 2) * CGFloat(accelRate.z)
+		self.contentOffset.y = self.middelContentOffset.y - (self.sizeOfOrgImage.height / 2) * CGFloat(accelRate.z) + self.sizeOfOrgImage.height
+		self.globeHalf = accelRate.z
 	}
 	
 	private func rotationAmount(rotation : Double, horizontal: Bool) -> Double {
