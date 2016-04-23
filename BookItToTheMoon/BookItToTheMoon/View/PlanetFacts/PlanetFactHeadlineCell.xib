@@ -7,13 +7,20 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="PlanetFactHeadlineCell" customModule="BookItToTheMoon" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="358" height="111"/>
+            <rect key="frame" x="0.0" y="0.0" width="358" height="122"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="358" height="111"/>
+                <rect key="frame" x="0.0" y="0.0" width="358" height="122"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You cannot breathe on the moon." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D3z-ey-Mny" userLabel="Headline">
-                        <rect key="frame" x="24" y="16" width="310" height="61"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="251" image="FactHeadline" translatesAutoresizingMaskIntoConstraints="NO" id="ctq-ho-tjf">
+                        <rect key="frame" x="14" y="12" width="44" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="44" id="VgZ-PS-RQR"/>
+                            <constraint firstAttribute="height" constant="44" id="snI-Fl-xOo"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="You cannot breathe on the moon." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D3z-ey-Mny" userLabel="Headline">
+                        <rect key="frame" x="72" y="8" width="272" height="110"/>
                         <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="26"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -24,14 +31,19 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="D3z-ey-Mny" secondAttribute="trailing" constant="14" id="6xd-Vs-0mL"/>
                 <constraint firstItem="D3z-ey-Mny" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="V8f-wJ-L7J"/>
-                <constraint firstItem="D3z-ey-Mny" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="14" id="eEO-5g-yGb"/>
+                <constraint firstItem="D3z-ey-Mny" firstAttribute="leading" secondItem="ctq-ho-tjf" secondAttribute="trailing" constant="14" id="XTK-GY-5QS"/>
+                <constraint firstItem="ctq-ho-tjf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="14" id="bcX-Kv-u2U"/>
+                <constraint firstItem="D3z-ey-Mny" firstAttribute="top" secondItem="ctq-ho-tjf" secondAttribute="top" constant="-4" id="dez-2P-Xgr"/>
                 <constraint firstAttribute="bottom" secondItem="D3z-ey-Mny" secondAttribute="bottom" constant="4" id="i7o-Lv-cNz"/>
             </constraints>
-            <size key="customSize" width="358" height="111"/>
+            <size key="customSize" width="358" height="122"/>
             <connections>
                 <outlet property="headlineLabel" destination="D3z-ey-Mny" id="vi6-4n-PTN"/>
             </connections>
-            <point key="canvasLocation" x="316" y="402.5"/>
+            <point key="canvasLocation" x="207" y="410"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="FactHeadline" width="155" height="167"/>
+    </resources>
 </document>

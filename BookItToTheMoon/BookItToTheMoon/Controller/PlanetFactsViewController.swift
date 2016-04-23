@@ -11,7 +11,7 @@ import UIKit
 // TODO: - 1. Facts anzeigen
 // TODO: - 1.1 Facts Cells
 // TODO: - 1.2 Self sizing collection view cells
-// TODO: - 2. Interaktion um Reason anzuzeigen (Set speichern)
+
 // TODO: - 3. physics !
 
 
@@ -58,15 +58,15 @@ class PlanetFactsViewController: PlanetViewController {
         }
     }
 
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        // setup estimated size
-        if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            flowLayout.estimatedItemSize = CGSize(width: CGRectGetWidth(collectionView.frame), height: 80)
-            flowLayout.invalidateLayout()
-        }
-    }
+//    override func viewDidLayoutSubviews() {
+//        super.viewDidLayoutSubviews()
+//        
+//        // setup estimated size
+//        if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+//            flowLayout.estimatedItemSize = CGSize(width: CGRectGetWidth(collectionView.frame), height: 80)
+//            flowLayout.invalidateLayout()
+//        }
+//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -99,8 +99,9 @@ extension PlanetFactsViewController: UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         // one row if fact is not selected, two rows if fact is selected
-        let factAtSection = facts[section]
-        return selectedFacts.contains(factAtSection) ? 2 : 1
+//        let factAtSection = facts[section]
+//        return selectedFacts.contains(factAtSection) ? 2 : 1
+        return 2
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -143,28 +144,28 @@ extension PlanetFactsViewController: UICollectionViewDelegate {
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
-        guard Item(rawValue: indexPath.item)! == Item.FactHeadline else {
-            return
-        }
-        
-        let fact = facts[indexPath.section]
-        switch selectedFacts.contains(fact) {
-        case true:
-            // remove item
-            selectedFacts.remove(fact)
-            
-            // delete animation
-            let deleteIndexPath = NSIndexPath(forItem: Item.FactReason.rawValue, inSection: indexPath.section)
-            collectionView.deleteItemsAtIndexPaths([deleteIndexPath])
-            
-        case false:
-            // add item
-            selectedFacts.insert(fact)
-            
-            // insert animation
-            let insertIndexPath = NSIndexPath(forItem: Item.FactReason.rawValue, inSection: indexPath.section)
-            collectionView.insertItemsAtIndexPaths([insertIndexPath])
-        }
+//        guard Item(rawValue: indexPath.item)! == Item.FactHeadline else {
+//            return
+//        }
+//        
+//        let fact = facts[indexPath.section]
+//        switch selectedFacts.contains(fact) {
+//        case true:
+//            // remove item
+//            selectedFacts.remove(fact)
+//            
+//            // delete animation
+//            let deleteIndexPath = NSIndexPath(forItem: Item.FactReason.rawValue, inSection: indexPath.section)
+//            collectionView.deleteItemsAtIndexPaths([deleteIndexPath])
+//            
+//        case false:
+//            // add item
+//            selectedFacts.insert(fact)
+//            
+//            // insert animation
+//            let insertIndexPath = NSIndexPath(forItem: Item.FactReason.rawValue, inSection: indexPath.section)
+//            collectionView.insertItemsAtIndexPaths([insertIndexPath])
+//        }
         
     }
     
@@ -182,7 +183,7 @@ extension PlanetFactsViewController: UICollectionViewDelegateFlowLayout {
 //    }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 12, left: 0, bottom: 12, right: 0)
+        return UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
