@@ -161,7 +161,7 @@ extension StarMap {
 	}
 	
 	func calcMovementFromAccel(accelRate : CMAcceleration) {
-		self.contentOffset.y = self.middelContentOffset.y + (self.sizeOfOrgImage.height / 2) * CGFloat(accelRate.z)
+		self.contentOffset.y = self.middelContentOffset.y - (self.sizeOfOrgImage.height / 2) * CGFloat(accelRate.z)
 	}
 	
 	private func rotationAmount(rotation : Double, horizontal: Bool) -> Double {
