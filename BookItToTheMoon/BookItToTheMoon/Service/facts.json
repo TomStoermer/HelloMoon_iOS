@@ -2,7 +2,7 @@
     "facts" : [
         {
             "fact" : "You cannot breathe on the moon.",
-            "reason" : "Because the moon doesn’t have an atmosphere. Astronauts need a suit, filled with air, to breathe."
+            "reason" : "Because the moon doesn’t have an atmosphere. Astronauts need a suit, filled with air, to breathe. Furthermore you canno't hear anything."
         },
         {
             "fact" : "If you would travel to the moon with a car, you will need six month.",
@@ -18,7 +18,7 @@
         },
         {
             "fact" : "There are two golf balls on the moon",
-            "reason" : "The astronaut Al Shepard was the first golf player on the moon. He took two balls and one golf club to the moon."
+            "reason" : "The astronaut Al Shepard was the first golf player on the moon. He took two balls and one golf club to the moon. He drove it 2,400 feet."
         },
         {
             "fact" : "Everything is enormously lightweight on the moon",
@@ -27,6 +27,26 @@
         {
             "fact" : "On 21 July 1969 the first humans, Neil Armstrong and Buzz Aldrin, arrived the moon",
             "reason" : "It was a big human dream, to fly to moon. This dream got true with the Apollo 11 Mission, which was the first spaceflight that landed humans on the Moon. Armstrong and Aldrin spent about two hours on the moon, to make studies and to place the american flag."
+        },
+        {
+            "fact" : "The moon has only been walked on by 12 people",
+            "reason" : "Until now, only 12 americans astronauts from the NASA walked on the moon. The multiple missions are called Apollo Missions."
+        },
+        {
+            "fact" : "The moon is drifting away from the earth",
+            "reason" : "Each year the moon os drifting away about 3 centimeters."
+        },
+        {
+            "fact" : "The Apollo missions brought back 2196 rock samples ",
+            "reason" : "The rocks are used to get informations about the birth process of planets, moons and even our solar system"
+        },
+        {
+            "fact" : "We always see the same side of the moon",
+            "reason" : "The Moon needs just as long to orbit the Earth as to rotate about itself. Because of this, we always see one side."
+        },
+        {
+            "fact" : "Sometimes you cann see an supermoon",
+            "reason" : "A supermoon can bee seen, when there is a full visible moon, that is especially near to the earth."
         }
     ]
 }

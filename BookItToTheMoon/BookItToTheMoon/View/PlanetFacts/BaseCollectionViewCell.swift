@@ -26,6 +26,8 @@ class BaseCollectionViewCell: UICollectionViewCell {
     // Calculate height witdh given width
     override func preferredLayoutAttributesFittingAttributes(layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
         
+        super.preferredLayoutAttributesFittingAttributes(layoutAttributes)
+        
         let attr: UICollectionViewLayoutAttributes = layoutAttributes.copy() as! UICollectionViewLayoutAttributes
         
         var newFrame = attr.frame
