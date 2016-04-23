@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreMotion
 
 
 class StarMap : UIScrollView {
@@ -144,8 +145,27 @@ private extension StarMap {
 extension StarMap {
 	
 	// We Assume that South == 0/0
+	// x -> pos change -> tilting phone upwards
+	// y -> pos change -> rotate phone left
+	// z -> pos change -> tilting phone left
 	
-	func calcOffsetFromGyro() {
+	
+	
+	func calcMovementFromGyro(rotationRate : CMRotationRate) {
+		let vec = CGVector(dx: rotationAmount(rotationRate.x, horizontal: true), dy: rotationAmount(rotationRate.y, horizontal: false))
 		
+		self.changePositon(vec)
 	}
+	
+	
+	private func rotationAmount(rotation : Double, horizontal: Bool) -> Double {
+		let degrees = rotation.radiansToDegrees
+		if horizontal {
+			return (180.0 / 100.0 * degrees) * Double(self.sizeOfOrgImage.width)
+		}
+		else {
+			return (90.0 / 100.0 * degrees) * Double(self.sizeOfOrgImage.height)
+		}
+	}
+	
 }

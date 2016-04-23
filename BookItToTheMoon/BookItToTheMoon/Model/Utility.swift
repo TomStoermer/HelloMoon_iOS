@@ -11,4 +11,8 @@ import Foundation
 extension Double {
 	var degreesToRadians: Double { return self * M_PI / 180 }
 	var radiansToDegrees: Double { return self * 180 / M_PI }
+	
+	func format(f: String) -> String {
+		return String(format: "%\(f)f", self)
+	}
 }

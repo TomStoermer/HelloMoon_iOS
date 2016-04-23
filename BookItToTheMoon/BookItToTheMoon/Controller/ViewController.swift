@@ -32,15 +32,15 @@ class ViewController: UIViewController {
         motionManager.deviceMotionUpdateInterval = 1/40
         motionManager.gyroUpdateInterval = 1/60
         // Do any additional setup after loading the view, typically from a nib.
-        
-        // update moon label
-        moonElevationAngleLabel.text = "Moon Elevation \(-38.66) °"
-        moonHorizontalAngleLabel.text = "Moon Horizontal \(302.19) °"
 		
 		
 		// moon Test:
-		let moonCalc = MoonPosition()
-		print(moonCalc.getMoonPosition(NSDate(timeIntervalSinceNow: 0), lat: 51.333533, lng: 12.373037))
+		let moonCalc = MoonPosition().getMoonPosition(NSDate(timeIntervalSinceNow: 0), lat: 51.333533, lng: 12.373037)
+		print(moonCalc)
+		
+        // update moon label
+        moonElevationAngleLabel.text = "Moon Elevation \(moonCalc.altitude.format(".2")) °"
+        moonHorizontalAngleLabel.text = "Moon Horizontal \(moonCalc.azimuth.format(".2")) °"
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -89,9 +89,9 @@ extension ViewController {
             print(deviceMotion.rotationRate)
             
             // update labels
-            self?.pitchValueLabel.text = "X: \(deviceMotion.rotationRate.x) °"
-            self?.yawValueLabel.text = "Y: \(deviceMotion.rotationRate.y) °"
-            self?.rollValueLabel.text = "Z: \(deviceMotion.rotationRate.z) °"
+            self?.pitchValueLabel.text = "X: \(deviceMotion.rotationRate.x.format(".5")) °"
+            self?.yawValueLabel.text = "Y: \(deviceMotion.rotationRate.y.format(".5")) °"
+            self?.rollValueLabel.text = "Z: \(deviceMotion.rotationRate.z.format(".5")) °"
             
         }
     }
@@ -131,15 +131,17 @@ extension ViewController {
 				let dy = -CGFloat(gyroData.rotationRate.x) * motionMovingRate
 				self!.starMap.changePositon(CGVector(dx: dx, dy: dy))
             }
+			
+			self?.starMap.calcMovementFromGyro(gyroData.rotationRate)
         }
     }
     
     private func debugDeviceRotationWithGyroData(gyroData: CMGyroData) {
         
         // update labels
-        self.pitchValueLabel.text = "X: \(ceil((gyroData.rotationRate.x * 180.0 / M_PI))) °"
-        self.yawValueLabel.text = "Y: \(ceil((gyroData.rotationRate.y * 180.0 / M_PI))) °"
-        self.rollValueLabel.text = "Z: \(ceil((gyroData.rotationRate.z * 180.0 / M_PI))) °"
+        self.pitchValueLabel.text = "X: \(ceil((gyroData.rotationRate.x * 180.0 / M_PI)).format(".5")) °"
+        self.yawValueLabel.text = "Y: \(ceil((gyroData.rotationRate.y * 180.0 / M_PI)).format(".5")) °"
+        self.rollValueLabel.text = "Z: \(ceil((gyroData.rotationRate.z * 180.0 / M_PI)).format(".5")) °"
         
     }
     
