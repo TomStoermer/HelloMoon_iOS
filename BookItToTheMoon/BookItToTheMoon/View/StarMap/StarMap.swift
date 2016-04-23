@@ -12,8 +12,16 @@ import UIKit
 
 class StarMap : UIScrollView {
 	
+	@IBInspectable
+	private let someName : String = ""
+	
+	private let bgImageName = "ff8" //"examplecluster"
+	
 	var currentPos = CGPoint(x: 0, y: 0)
 	var moonPosition = CGPoint(x: 0, y: 0)
+	
+	private var sizeOfOrgImage = CGSize(width: 0, height: 0)
+	private var middleMap : UIImageView = UIImageView()
 	
 	
 	init(frame: CGRect, startPos : CGPoint) {
@@ -28,15 +36,45 @@ class StarMap : UIScrollView {
 		//fatalError("init(coder:) has not been implemented")
 		super.init(coder: aDecoder)
 		
-		let imageView = UIImageView(image: UIImage(imageLiteral: "examplecluster"))
-		self.addSubview(imageView)
-		self.contentSize = imageView.frame.size
-		self.contentOffset = CGPoint(x: imageView.frame.size.width / 2, y: imageView.frame.size.height / 2)
-		
+		self.createBackgroundMap(UIImage(imageLiteral: self.bgImageName))
 		self.delegate = self
 	}
-    
-	func setStartingPos(start : CGPoint) {
+	
+	private func createBackgroundMap(image : UIImage) {
+		let imageView = UIImageView(image: image)
+		self.sizeOfOrgImage = imageView.frame.size
+		print("Org Img Size: \(self.sizeOfOrgImage)")
+		
+		let contSize = CGSize(width: self.sizeOfOrgImage.width * 3, height: self.sizeOfOrgImage.height * 3)
+		
+		var xPos : CGFloat = 0
+		var yPos : CGFloat = -self.sizeOfOrgImage.height
+		
+		for i in 0..<9 {
+			if i % 3 == 0 {
+				yPos += self.sizeOfOrgImage.height
+				xPos = 0
+			}
+			
+			let newImageView = UIImageView(image: image)
+			newImageView.frame.origin = CGPoint(x: xPos, y: yPos)
+			self.addSubview(newImageView)
+			
+			if i == 4 {
+				self.middleMap = newImageView
+			}
+			
+			xPos += self.sizeOfOrgImage.width
+			print("Added frame: \(newImageView.frame) - \(i % 3)")
+		}
+		
+		self.contentSize = contSize //imageView.frame.size
+		print("ContentSize Size: \(self.contentSize)")
+		
+		self.contentOffset = CGPoint(x: contSize.width / 2, y: contSize.height / 2)
+	}
+	
+	private func setStartingPos(start : CGPoint) {
 		self.currentPos = start
 	}
 
@@ -69,13 +107,32 @@ extension StarMap : UIScrollViewDelegate {
 	
 	/// reset the position to some point on the original map, if necessary
 	func resetToOriginalMap() {
-		if self.outOfBounds() {
-			self.contentOffset = currentOrgPos()
+		let boolPointPair = self.outOfBounds()
+		if boolPointPair.bool {
+			if boolPointPair.point.x < 0 {
+				self.contentOffset.x += self.sizeOfOrgImage.width
+			}
+			else if boolPointPair.point.x > self.sizeOfOrgImage.width {
+				self.contentOffset.x -= self.sizeOfOrgImage.width
+			}
+			else if boolPointPair.point.y < 0 {
+				self.contentOffset.y += self.sizeOfOrgImage.height
+			}
+			else if boolPointPair.point.y > self.sizeOfOrgImage.height {
+				self.contentOffset.y -= self.sizeOfOrgImage.height
+			}
 		}
 	}
 	
-	func outOfBounds() -> Bool {
-		return false
+	func outOfBounds() -> (bool : Bool,point: CGPoint) {
+		let posToMid = convertPoint(self.contentOffset, toView: self.middleMap)
+		if posToMid.x < 0 || posToMid.y < 0 {
+			return (true, posToMid)
+		}
+		if posToMid.x > self.sizeOfOrgImage.width || posToMid.y > self.sizeOfOrgImage.height {
+			return (true , posToMid)
+		}
+		return (false, posToMid)
 	}
 	
 	func currentOrgPos() -> CGPoint {

@@ -57,7 +57,7 @@ extension ViewController {
             guard let deviceMotion = deviceMotion else {
                 return
             }
-            
+			
             print(deviceMotion.attitude)
             
             
