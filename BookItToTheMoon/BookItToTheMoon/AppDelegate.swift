@@ -16,6 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        navigationBarAppearance()
+        
         return true
     }
 
@@ -42,5 +45,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+}
+
+
+
+// MARK: - Apperance
+
+private extension AppDelegate {
+    
+    func navigationBarAppearance() {
+        
+        let navBarApperance = UINavigationBar.appearance()
+        navBarApperance.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        navBarApperance.shadowImage = UIImage()
+        navBarApperance.translucent = true
+        navBarApperance.tintColor = UIColor.whiteColor()
+        
+    }
+    
 }
 

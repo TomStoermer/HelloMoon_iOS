@@ -9,10 +9,10 @@
 import Foundation
 
 
-struct MoonFact: PlanetFact {
+struct PlanetFact {
     
-    private let moonFactHeadline: String
-    private let moonFactReason: String
+    let factHeadline: String
+    let factReason: String
     
     init(jsonDictionary: NSDictionary) {
         
@@ -22,20 +22,28 @@ struct MoonFact: PlanetFact {
         }
 
         // init values
-        moonFactHeadline = fact
-        moonFactReason = reason
+        self.factHeadline = fact
+        self.factReason = reason
         
     }
+
+}
+
+
+
+// MARK: Hashable
+
+extension PlanetFact: Hashable {
     
-    
-    
-    // -- PlanetFact Protocol
-    
-    var factHeadline: String {
-        return moonFactHeadline
+    var hashValue: Int {
+        return factHeadline.hashValue ^ factHeadline.hashValue
     }
-    
-    var factReason: String {
-        return moonFactReason
-    }
+}
+
+
+
+// MARK: Equatable
+
+func ==(lhs: PlanetFact, rhs: PlanetFact) -> Bool {
+    return lhs.factHeadline == rhs.factHeadline && lhs.factReason == rhs.factReason
 }

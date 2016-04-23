@@ -15,7 +15,7 @@ class MoonViewController: PlanetViewController {
     @IBOutlet weak var planetTitleLabel: UILabel!
     @IBOutlet weak var planetDescriptionLabel: UILabel!
 
-    let moon: Moon = Moon(moonPhase: .FullMoon, moonDistance: 375_000.0)
+    let moon: Moon = Moon(moonPhase: .FullMoon, moonDistance: 375_000.0, moonFacts: [])
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,7 +102,7 @@ class MoonViewController: PlanetViewController {
 
 extension MoonViewController {
     
-    @IBAction func closeButtonPressed(sender: UIButton) {
+    @IBAction func closeBarButtonItemPressed(sender: UIBarButtonItem) {
         
         self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }

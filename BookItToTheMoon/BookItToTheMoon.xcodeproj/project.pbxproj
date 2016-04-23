@@ -22,8 +22,14 @@
 		C4FD55D11CCBA797009C68D8 /* MoonPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FD55D01CCBA797009C68D8 /* MoonPosition.swift */; };
 		C4FD55D41CCBABBA009C68D8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C4FD55D61CCBABBA009C68D8 /* Localizable.strings */; };
 		C4FD55D91CCBBB14009C68D8 /* JSONRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FD55D81CCBBB14009C68D8 /* JSONRequester.swift */; };
-		C4FD55DB1CCBBB59009C68D8 /* facts.json in Resources */ = {isa = PBXBuildFile; fileRef = C4FD55DA1CCBBB59009C68D8 /* facts.json */; };
 		C4FD55DD1CCBBECA009C68D8 /* MoonFact.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FD55DC1CCBBECA009C68D8 /* MoonFact.swift */; };
+		C4FD55E11CCBCA6D009C68D8 /* PlanetFactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FD55E01CCBCA6D009C68D8 /* PlanetFactsViewController.swift */; };
+		C4FD55E61CCBDECE009C68D8 /* PlanetFactHeadlineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FD55E41CCBDECE009C68D8 /* PlanetFactHeadlineCell.swift */; };
+		C4FD55E71CCBDECE009C68D8 /* PlanetFactHeadlineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4FD55E51CCBDECE009C68D8 /* PlanetFactHeadlineCell.xib */; };
+		C4FD55EC1CCBDF11009C68D8 /* PlanetFactReasonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FD55EA1CCBDF11009C68D8 /* PlanetFactReasonCell.swift */; };
+		C4FD55ED1CCBDF11009C68D8 /* PlanetFactReasonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4FD55EB1CCBDF11009C68D8 /* PlanetFactReasonCell.xib */; };
+		C4FD55EF1CCBEF48009C68D8 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FD55EE1CCBEF48009C68D8 /* BaseCollectionViewCell.swift */; };
+		C4FD55F11CCBF219009C68D8 /* facts.json in Resources */ = {isa = PBXBuildFile; fileRef = C4FD55F01CCBF219009C68D8 /* facts.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,8 +50,14 @@
 		C4FD55D01CCBA797009C68D8 /* MoonPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoonPosition.swift; sourceTree = "<group>"; };
 		C4FD55D51CCBABBA009C68D8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C4FD55D81CCBBB14009C68D8 /* JSONRequester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONRequester.swift; sourceTree = "<group>"; };
-		C4FD55DA1CCBBB59009C68D8 /* facts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = facts.json; sourceTree = "<group>"; };
 		C4FD55DC1CCBBECA009C68D8 /* MoonFact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoonFact.swift; sourceTree = "<group>"; };
+		C4FD55E01CCBCA6D009C68D8 /* PlanetFactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanetFactsViewController.swift; sourceTree = "<group>"; };
+		C4FD55E41CCBDECE009C68D8 /* PlanetFactHeadlineCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanetFactHeadlineCell.swift; sourceTree = "<group>"; };
+		C4FD55E51CCBDECE009C68D8 /* PlanetFactHeadlineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanetFactHeadlineCell.xib; sourceTree = "<group>"; };
+		C4FD55EA1CCBDF11009C68D8 /* PlanetFactReasonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanetFactReasonCell.swift; sourceTree = "<group>"; };
+		C4FD55EB1CCBDF11009C68D8 /* PlanetFactReasonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanetFactReasonCell.xib; sourceTree = "<group>"; };
+		C4FD55EE1CCBEF48009C68D8 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		C4FD55F01CCBF219009C68D8 /* facts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = facts.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +74,7 @@
 		50555E891CCA8C2D0045D66C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C4FD55E31CCBDE8B009C68D8 /* Planet Facts */,
 				50555E8A1CCA8C340045D66C /* StarMap */,
 			);
 			name = View;
@@ -142,6 +155,7 @@
 			children = (
 				C4FD55C11CCB8B9D009C68D8 /* PlanetViewController.swift */,
 				C4FD55CE1CCB9ADD009C68D8 /* MoonViewController.swift */,
+				C4FD55E01CCBCA6D009C68D8 /* PlanetFactsViewController.swift */,
 			);
 			name = "Planet Detail";
 			sourceTree = "<group>";
@@ -158,10 +172,23 @@
 		C4FD55D71CCBB985009C68D8 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				C4FD55DA1CCBBB59009C68D8 /* facts.json */,
+				C4FD55F01CCBF219009C68D8 /* facts.json */,
 				C4FD55D81CCBBB14009C68D8 /* JSONRequester.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		C4FD55E31CCBDE8B009C68D8 /* Planet Facts */ = {
+			isa = PBXGroup;
+			children = (
+				C4FD55EE1CCBEF48009C68D8 /* BaseCollectionViewCell.swift */,
+				C4FD55E41CCBDECE009C68D8 /* PlanetFactHeadlineCell.swift */,
+				C4FD55E51CCBDECE009C68D8 /* PlanetFactHeadlineCell.xib */,
+				C4FD55EA1CCBDF11009C68D8 /* PlanetFactReasonCell.swift */,
+				C4FD55EB1CCBDF11009C68D8 /* PlanetFactReasonCell.xib */,
+			);
+			name = "Planet Facts";
+			path = View/PlanetFacts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,8 +249,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4FD55E71CCBDECE009C68D8 /* PlanetFactHeadlineCell.xib in Resources */,
 				C4FD55D41CCBABBA009C68D8 /* Localizable.strings in Resources */,
-				C4FD55DB1CCBBB59009C68D8 /* facts.json in Resources */,
+				C4FD55ED1CCBDF11009C68D8 /* PlanetFactReasonCell.xib in Resources */,
+				C4FD55F11CCBF219009C68D8 /* facts.json in Resources */,
 				C4FD55B91CCA73DE009C68D8 /* LaunchScreen.storyboard in Resources */,
 				C4FD55B61CCA73DE009C68D8 /* Assets.xcassets in Resources */,
 				C4FD55CD1CCB9396009C68D8 /* PlanetDetail.storyboard in Resources */,
@@ -239,13 +268,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4FD55DD1CCBBECA009C68D8 /* MoonFact.swift in Sources */,
+				C4FD55EC1CCBDF11009C68D8 /* PlanetFactReasonCell.swift in Sources */,
 				C4FD55D91CCBBB14009C68D8 /* JSONRequester.swift in Sources */,
 				C4FD55C91CCB9091009C68D8 /* Moon.swift in Sources */,
 				50555E8C1CCA8C520045D66C /* StarMap.swift in Sources */,
+				C4FD55EF1CCBEF48009C68D8 /* BaseCollectionViewCell.swift in Sources */,
 				C4FD55B11CCA73DE009C68D8 /* ViewController.swift in Sources */,
 				501327121CCBA1BA0094F084 /* Utility.swift in Sources */,
+				C4FD55E61CCBDECE009C68D8 /* PlanetFactHeadlineCell.swift in Sources */,
 				C4FD55D11CCBA797009C68D8 /* MoonPosition.swift in Sources */,
 				C4FD55C61CCB8D68009C68D8 /* Planet.swift in Sources */,
+				C4FD55E11CCBCA6D009C68D8 /* PlanetFactsViewController.swift in Sources */,
 				C4FD55CF1CCB9ADD009C68D8 /* MoonViewController.swift in Sources */,
 				C4FD55C21CCB8B9D009C68D8 /* PlanetViewController.swift in Sources */,
 				C4FD55AF1CCA73DE009C68D8 /* AppDelegate.swift in Sources */,
