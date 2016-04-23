@@ -162,7 +162,7 @@ extension StarMap {
 	func calcMovementFromAttitude(attitude : CMAttitude) {
 		
 		let fullAngle = 180.0
-		let angle = attitude.roll.radiansToDegrees
+		let angle = attitude.yaw.radiansToDegrees
 		let percent = abs(fullAngle / 100.0 * angle)
 		let newPos = self.sizeOfOrgImage.width / 2.0 * CGFloat(percent)
 		
