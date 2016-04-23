@@ -104,9 +104,20 @@ extension ViewController {
             
             if fabs(gyroData.rotationRate.y) >= 0.1 {
                 
+<<<<<<< HEAD:BookItToTheMoon/BookItToTheMoon/ViewController.swift
                 let targetX = self!.starMap.contentOffset.x - CGFloat(gyroData.rotationRate.y) * motionMovingRate
                 let targetY = self!.starMap.contentOffset.y - CGFloat(gyroData.rotationRate.x) * motionMovingRate
                 self!.starMap.contentOffset = CGPoint(x: targetX, y: targetY)
+=======
+//                let targetX = self!.starMap.contentOffset.x - CGFloat(gyroData.rotationRate.y) * motionMovingRate
+//                let targetY = self!.starMap.contentOffset.y - CGFloat(gyroData.rotationRate.x) * motionMovingRate
+//                self!.starMap.contentOffset = CGPoint(x: targetX, y: targetY)
+				
+				let dx = -CGFloat(gyroData.rotationRate.y) * motionMovingRate
+				let dy = -CGFloat(gyroData.rotationRate.x) * motionMovingRate
+				self!.starMap.changePositon(CGVector(dx: dx, dy: dy))
+                
+>>>>>>> b1b69be976bf4be76ea97a61a3398f5e8adcf222:BookItToTheMoon/BookItToTheMoon/Controller/ViewController.swift
             }
         }
     }
