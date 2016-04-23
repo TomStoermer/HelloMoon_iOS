@@ -35,7 +35,7 @@ class MoonPosition {
         return toJulian(date) - J2000
     }
     
-    func moonCoords(d:Double) -> Array<Double>{
+	func moonCoords(d:Double) -> [Double] {
 
        let L = radius * (218.316 + 12.176396 * d), // ecliptic longitude
            M = radius * (134.963 + 13.064993 * d), // mean anomaly
@@ -54,7 +54,7 @@ class MoonPosition {
 
     }
 
-    func rightAscenation(el:Double, be:Double) -> Double{
+    func rightAscenation(el:Double, be:Double) -> Double {
         return atan2( sin(el) * cos(e) - tan(be) * sin(e), cos(el) )
     }
     
@@ -62,7 +62,7 @@ class MoonPosition {
         return asin(sin(be) * cos(e) + cos(be) * sin(e) * sin(el) )
     }
     
-    func getMoonPosition(date:NSDate, lat:Double, lng:Double) -> Array<Double> {
+    func getMoonPosition(date:NSDate, lat:Double, lng:Double) -> [Double] {
     
          var lw  = radius * -lng,
              phi = radius * lat,
@@ -89,7 +89,7 @@ class MoonPosition {
          //}
      }
     
-    func siderealTime(d:Double, lw:Double) -> Double{
+    func siderealTime(d:Double, lw:Double) -> Double {
         
         return radius * (280.16 + 360.9856235 * d) - lw
     
