@@ -52,13 +52,27 @@ class MoonViewController: PlanetViewController {
         
         // fade in details and other actions
         
-        animateGradientBackground()
+//        animateGradientBackground()
+        startPlanetRotation(planetImageView)
         
-        // request facts
-        JSONRequester.requestMoonFacts { (moonFacts, error) in
-            print(moonFacts)
+    }
+    
+    private func startPlanetRotation(planetImageView: UIImageView) {
+        
+        // check if the animation is already known
+        guard planetImageView.layer.animationForKey("rotationAnimation") == nil else {
+            print("rotaton Animation on planet is active.")
+            return
         }
         
+        let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
+        rotationAnimation.toValue = NSNumber(double: M_PI * 2.0)
+        rotationAnimation.duration = 60
+        rotationAnimation.autoreverses = false
+        rotationAnimation.removedOnCompletion = false
+        rotationAnimation.repeatCount = Float(CGFloat.max)
+        rotationAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        planetImageView.layer.addAnimation(rotationAnimation, forKey: "rotationAnimation")
     }
     
     private func animateGradientBackground() {
