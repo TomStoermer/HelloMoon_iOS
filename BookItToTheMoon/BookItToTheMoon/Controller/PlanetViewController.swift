@@ -15,10 +15,10 @@ class PlanetViewController: UIViewController {
     // MARK: - Properties
     private weak var backgroundGradient: CAGradientLayer?
     private var topGradientColor: CGColor {
-        return UIColor(colorLiteralRed: 107.0/255.0, green: 103.0/255.0, blue: 103.0/255.0, alpha: 1.0).CGColor
+        return UIColor(colorLiteralRed: 60.0/255.0, green: 56.0/255.0, blue: 88.0/255.0, alpha: 1.0).CGColor
     }
     private var bottomGradientColor: CGColor {
-        return UIColor(colorLiteralRed: 128.0/255.0, green: 140.0/255.0, blue: 145.0/255.0, alpha: 1.0).CGColor
+        return UIColor(colorLiteralRed: 141.0/255.0, green: 105.0/255.0, blue: 136.0/255.0, alpha: 1.0).CGColor
     }
     
     
@@ -31,9 +31,9 @@ class PlanetViewController: UIViewController {
         // prepare gradient 
         let gradient = CAGradientLayer()
         gradient.colors = [topGradientColor, bottomGradientColor]
-        gradient.locations = [0.0, 1.0]
-        gradient.startPoint = CGPoint(x: 1.0, y: 0.0)
-        gradient.endPoint = CGPoint(x: 0.0, y: 1.0)
+        gradient.locations = [0.2, 0.9]
+        gradient.startPoint = CGPoint(x: 0.5, y: 0.0)
+        gradient.endPoint = CGPoint(x: 0.5, y: 1.0)
 
         // insert gradient
         backgroundGradient = gradient
@@ -64,4 +64,19 @@ class PlanetViewController: UIViewController {
     }
     */
 
+}
+
+
+// MARK: - Status Bar
+
+extension PlanetViewController {
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+    
+    override func preferredStatusBarUpdateAnimation() -> UIStatusBarAnimation {
+        return .Slide
+    }
+    
 }
