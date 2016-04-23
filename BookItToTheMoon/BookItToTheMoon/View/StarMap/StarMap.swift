@@ -163,14 +163,15 @@ extension StarMap {
 		
 		let fullAngle = 180.0
 		let angle = attitude.yaw.radiansToDegrees
-		let percent = abs(fullAngle / 100.0 * angle)
-		let newPos = self.sizeOfOrgImage.width / 2.0 * CGFloat(percent)
+		let percent = abs(angle / fullAngle)		
 		
 		if self.globeHalf > 0 {
-			self.contentOffset.x = self.middelContentOffset.x + newPos * (angle < 0 ? -1 : 1)
+			let newPos = self.sizeOfOrgImage.width / 2.0 * CGFloat(percent)
+			self.contentOffset.x = self.middelContentOffset.x + newPos * (angle < 0 ? 1 : -1)
 		}
 		else if self.globeHalf < 0 {
-			self.contentOffset.x = self.middelContentOffset.x + newPos * (angle < 0 ? 1 : -1)
+			let newPos = self.middelContentOffset.x / 2.0 * CGFloat((1-percent))
+			self.contentOffset.x = self.middelContentOffset.x + newPos * (angle < 0 ? -1 : 1)
 		}
 	}
 	
