@@ -15,6 +15,8 @@ class MoonViewController: PlanetViewController {
     @IBOutlet weak var planetImageView: UIImageView!
     @IBOutlet weak var planetTitleLabel: UILabel!
     @IBOutlet weak var planetDescriptionLabel: UILabel!
+    
+    @IBOutlet weak var planetFactsButton: UIButton!
 
     let moon: Moon = Moon(moonPhase: .FullMoon, moonDistance: 375_000.0, moonFacts: [])
     private var audioPlayer: AVAudioPlayer?
@@ -73,6 +75,12 @@ class MoonViewController: PlanetViewController {
         
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        rotateFactsButton()
+    }
+    
     private func startPlanetRotation(planetImageView: UIImageView) {
         
         // check if the animation is already known
@@ -107,6 +115,26 @@ class MoonViewController: PlanetViewController {
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
         backgroundGradient?.addAnimation(animation, forKey: "animateGradientLocation")
     }
+    
+    private func rotateFactsButton() {
+        
+        /*
+         CGFloat angle = atan2f(point2.y - point1.y, point2.x - point1.x);
+         CGAffineTransform rotationTransform = CGAffineTransformIdentity;
+         rotationTransform = CGAffineTransformMakeRotation(angle);
+         arrow.transform = rotationTransform;
+         */
+        
+        let planetCenter = planetImageView.center
+        let factsCenter = planetFactsButton.center
+        
+        let angle = atan2(planetCenter.y - factsCenter.y, planetCenter.x - factsCenter.x)
+        var rotationTransform = CGAffineTransformIdentity
+        rotationTransform = CGAffineTransformMakeRotation(angle - CGFloat(M_PI_2))
+//        rotationTransform = CGAffineTransformMakeRotation(CGFloat(M_PI_2)) // add 90 degree
+        planetFactsButton.transform = rotationTransform
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -139,5 +167,10 @@ extension MoonViewController {
         
         // stop playing sound
         self.audioPlayer?.stop()
+    }
+    
+    @IBAction func planetFactsButtonPressed(sender: UIButton) {
+        
+        performSegueWithIdentifier("showPlanetFacts", sender: nil)
     }
 }

@@ -237,7 +237,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C4FD55A61CCA73DE009C68D8 /* Build configuration list for PBXProject "BookItToTheMoon" */;
+			buildConfigurationList = C4FD55A61CCA73DE009C68D8 /* Build configuration list for PBXProject "HelloMoon" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -439,7 +439,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C4FD55A61CCA73DE009C68D8 /* Build configuration list for PBXProject "BookItToTheMoon" */ = {
+		C4FD55A61CCA73DE009C68D8 /* Build configuration list for PBXProject "HelloMoon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C4FD55BB1CCA73DE009C68D8 /* Debug */,
