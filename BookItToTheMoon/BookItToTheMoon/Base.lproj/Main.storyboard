@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,25 +16,57 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x2q-g3-IA4" customClass="StarMap" customModule="BookItToTheMoon" customModuleProvider="target">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x2q-g3-IA4" customClass="StarMap" customModule="BookItToTheMoon" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LOL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCY-A2-kys">
-                                        <rect key="frame" x="169" y="556" width="31" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="LOL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCY-A2-kys" userLabel="Roll Value">
+                                <rect key="frame" x="23" y="500" width="37" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZe-cZ-DOd" userLabel="Moon Distance Angle Value">
+                                <rect key="frame" x="543" y="530" width="37" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v3X-Or-AOD" userLabel="Moon Horizontal Angle Value">
+                                <rect key="frame" x="543" y="560" width="37" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="LOL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H8t-9O-cZn" userLabel="Pitch Value">
+                                <rect key="frame" x="23" y="530" width="37" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="LOL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQt-BM-tZn" userLabel="Yaw Value">
+                                <rect key="frame" x="23" y="560" width="37" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="aQt-BM-tZn" firstAttribute="top" secondItem="H8t-9O-cZn" secondAttribute="bottom" constant="6" id="1Ad-wM-iiE"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="aQt-BM-tZn" secondAttribute="bottom" constant="20" id="1OG-UL-U2J"/>
+                            <constraint firstItem="H8t-9O-cZn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="2FR-5G-3vo"/>
+                            <constraint firstItem="aCY-A2-kys" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="4Yk-cz-l87"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="v3X-Or-AOD" secondAttribute="bottom" constant="16" id="DjD-sm-3ow"/>
+                            <constraint firstAttribute="trailing" secondItem="qZe-cZ-DOd" secondAttribute="trailing" constant="20" id="N6x-NL-7pV"/>
                             <constraint firstItem="x2q-g3-IA4" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="SPY-Mk-ODk"/>
+                            <constraint firstItem="H8t-9O-cZn" firstAttribute="top" secondItem="aCY-A2-kys" secondAttribute="bottom" constant="6" id="Snw-09-rIz"/>
+                            <constraint firstItem="aQt-BM-tZn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="Ucz-0G-8TK"/>
+                            <constraint firstItem="v3X-Or-AOD" firstAttribute="top" secondItem="qZe-cZ-DOd" secondAttribute="bottom" constant="6" id="aaX-fY-tCN"/>
                             <constraint firstAttribute="trailing" secondItem="x2q-g3-IA4" secondAttribute="trailing" id="daA-sH-bDf"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="x2q-g3-IA4" secondAttribute="bottom" id="fyf-Hq-Kme"/>
                             <constraint firstItem="x2q-g3-IA4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="jog-gG-tar"/>
+                            <constraint firstAttribute="trailing" secondItem="v3X-Or-AOD" secondAttribute="trailing" constant="20" id="lHh-J4-GdM"/>
                             <constraint firstItem="x2q-g3-IA4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="lrG-Iy-gxo"/>
                         </constraints>
                         <variation key="default">
@@ -44,7 +76,12 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="moonElevationAngleLabel" destination="qZe-cZ-DOd" id="yYx-1c-zLx"/>
+                        <outlet property="moonHorizontalAngleLabel" destination="v3X-Or-AOD" id="FU6-cl-vjS"/>
+                        <outlet property="pitchValueLabel" destination="H8t-9O-cZn" id="qv1-zT-0lB"/>
+                        <outlet property="rollValueLabel" destination="aCY-A2-kys" id="qbs-03-SiZ"/>
                         <outlet property="starMap" destination="x2q-g3-IA4" id="Y3R-CS-1Ef"/>
+                        <outlet property="yawValueLabel" destination="aQt-BM-tZn" id="C2y-yc-a6g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
