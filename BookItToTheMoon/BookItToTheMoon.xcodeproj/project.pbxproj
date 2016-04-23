@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		501327101CCB9C860094F084 /* MoonPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5013270F1CCB9C860094F084 /* MoonPosition.swift */; };
 		50555E8C1CCA8C520045D66C /* StarMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50555E8B1CCA8C520045D66C /* StarMap.swift */; };
 		C4FD55AF1CCA73DE009C68D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FD55AE1CCA73DE009C68D8 /* AppDelegate.swift */; };
 		C4FD55B11CCA73DE009C68D8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FD55B01CCA73DE009C68D8 /* ViewController.swift */; };
@@ -17,10 +18,10 @@
 		C4FD55C61CCB8D68009C68D8 /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FD55C51CCB8D68009C68D8 /* Planet.swift */; };
 		C4FD55C91CCB9091009C68D8 /* Moon.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FD55C81CCB9091009C68D8 /* Moon.swift */; };
 		C4FD55CD1CCB9396009C68D8 /* PlanetDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4FD55CC1CCB9396009C68D8 /* PlanetDetail.storyboard */; };
-		E0A959A81CCB821500B81FEE /* Model in Resources */ = {isa = PBXBuildFile; fileRef = E0A959A71CCB821500B81FEE /* Model */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5013270F1CCB9C860094F084 /* MoonPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoonPosition.swift; sourceTree = "<group>"; };
 		50555E8B1CCA8C520045D66C /* StarMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StarMap.swift; path = View/StarMap/StarMap.swift; sourceTree = "<group>"; };
 		C4FD55AB1CCA73DE009C68D8 /* BookItToTheMoon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookItToTheMoon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4FD55AE1CCA73DE009C68D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -33,7 +34,6 @@
 		C4FD55C51CCB8D68009C68D8 /* Planet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Planet.swift; sourceTree = "<group>"; };
 		C4FD55C81CCB9091009C68D8 /* Moon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Moon.swift; sourceTree = "<group>"; };
 		C4FD55CC1CCB9396009C68D8 /* PlanetDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PlanetDetail.storyboard; sourceTree = "<group>"; };
-		E0A959A71CCB821500B81FEE /* Model */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Model; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +85,6 @@
 				C4FD55CB1CCB937E009C68D8 /* Storyboard */,
 				C4FD55C71CCB9042009C68D8 /* Assets */,
 				C4FD55C41CCB8D44009C68D8 /* Model */,
-				E0A959A71CCB821500B81FEE /* Model */,
 				C4FD55C01CCAA68A009C68D8 /* Controller */,
 				50555E891CCA8C2D0045D66C /* View */,
 				C4FD55AE1CCA73DE009C68D8 /* AppDelegate.swift */,
@@ -109,6 +108,7 @@
 			children = (
 				C4FD55C51CCB8D68009C68D8 /* Planet.swift */,
 				C4FD55C81CCB9091009C68D8 /* Moon.swift */,
+				5013270F1CCB9C860094F084 /* MoonPosition.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -199,7 +199,6 @@
 				C4FD55B91CCA73DE009C68D8 /* LaunchScreen.storyboard in Resources */,
 				C4FD55B61CCA73DE009C68D8 /* Assets.xcassets in Resources */,
 				C4FD55CD1CCB9396009C68D8 /* PlanetDetail.storyboard in Resources */,
-				E0A959A81CCB821500B81FEE /* Model in Resources */,
 				C4FD55B41CCA73DE009C68D8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -212,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4FD55C91CCB9091009C68D8 /* Moon.swift in Sources */,
+				501327101CCB9C860094F084 /* MoonPosition.swift in Sources */,
 				50555E8C1CCA8C520045D66C /* StarMap.swift in Sources */,
 				C4FD55B11CCA73DE009C68D8 /* ViewController.swift in Sources */,
 				C4FD55C61CCB8D68009C68D8 /* Planet.swift in Sources */,

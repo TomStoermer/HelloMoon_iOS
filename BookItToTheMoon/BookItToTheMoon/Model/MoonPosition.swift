@@ -22,7 +22,11 @@ class MoonPosition {
     init() {
         self.e = radius * 23.4397 // obliquity of the Earth
     }
-    
+	
+}
+
+private extension MoonPosition {
+
     func toJulian(date:NSDate) -> Double {
         return (date.timeIntervalSince1970 * 1000) / (dayMs - 0.5 + J1970)
     }
@@ -62,32 +66,7 @@ class MoonPosition {
         return asin(sin(be) * cos(e) + cos(be) * sin(e) * sin(el) )
     }
     
-    func getMoonPosition(date:NSDate, lat:Double, lng:Double) -> [Double] {
-    
-         var lw  = radius * -lng,
-             phi = radius * lat,
-             d   = toDays(date),
-    
-             c = moonCoords(d),
-             H = siderealTime(d, lw: lw) - c[1],
-             h = altitude(H, phi: phi, dec: c[2]),
-             pa = atan2(sin(H), tan(phi) * cos(c[2]) - sin(c[2]) * cos(H))
-    
-        h = h + astroRefraction(h); // altitude correction for refraction
-    
-        let azimuthCalc : Double = azimuth(H, phi: phi, dec: c[2])
-        
-        let moon_position : [Double] = [azimuthCalc, h, c[3], pa]
-        
-         return moon_position
-        
-         //return {
-         //    azimuth: azimuth(H, phi, c.dec),
-         //    altitude: h,
-         //    distance: c.dist,
-         //    parallacticAngle: pa
-         //}
-     }
+	
     
     func siderealTime(d:Double, lw:Double) -> Double {
         
@@ -116,4 +95,33 @@ class MoonPosition {
         return atan2(sin(H), cos(H) * sin(phi) - tan(dec) * cos(phi))
     
     }
+}
+
+extension MoonPosition {
+	func getMoonPosition(date:NSDate, lat:Double, lng:Double) -> [Double] {
+		
+		var lw  = radius * -lng,
+		phi = radius * lat,
+		d   = toDays(date),
+		
+		c = moonCoords(d),
+		H = siderealTime(d, lw: lw) - c[1],
+		h = altitude(H, phi: phi, dec: c[2]),
+		pa = atan2(sin(H), tan(phi) * cos(c[2]) - sin(c[2]) * cos(H))
+		
+		h = h + astroRefraction(h); // altitude correction for refraction
+		
+		let azimuthCalc : Double = azimuth(H, phi: phi, dec: c[2])
+		
+		let moon_position : [Double] = [azimuthCalc, h, c[3], pa]
+		
+		return moon_position
+		
+		//return {
+		//    azimuth: azimuth(H, phi, c.dec),
+		//    altitude: h,
+		//    distance: c.dist,
+		//    parallacticAngle: pa
+		//}
+	}
 }
