@@ -25,11 +25,11 @@
                                 </userDefinedRuntimeAttributes>
                             </scrollView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="7gq-U4-Tcj">
-                                <rect key="frame" x="240" y="40" width="119" height="29"/>
+                                <rect key="frame" x="204" y="40" width="191" height="29"/>
                                 <segments>
-                                    <segment title="111"/>
-                                    <segment title="222"/>
-                                    <segment title="333"/>
+                                    <segment title="rotation"/>
+                                    <segment title="gravity"/>
+                                    <segment title="Attitude"/>
                                 </segments>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCY-A2-kys" userLabel="Roll Value">
