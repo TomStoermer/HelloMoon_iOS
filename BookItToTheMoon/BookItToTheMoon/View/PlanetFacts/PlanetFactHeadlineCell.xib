@@ -40,7 +40,7 @@
             <connections>
                 <outlet property="headlineLabel" destination="D3z-ey-Mny" id="vi6-4n-PTN"/>
             </connections>
-            <point key="canvasLocation" x="207" y="410"/>
+            <point key="canvasLocation" x="306" y="322"/>
         </collectionViewCell>
     </objects>
     <resources>

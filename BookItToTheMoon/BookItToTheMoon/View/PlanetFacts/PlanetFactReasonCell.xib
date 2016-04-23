@@ -12,26 +12,31 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="347" height="101"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Because the moon doesn’t have an atmosphere. Astronauts need a suit, filled with air, to breathe." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OYf-my-BH4" userLabel="Fact Reason">
-                        <rect key="frame" x="24" y="16" width="299" height="69"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" misplaced="YES" text="Because the moon doesn’t have an atmosphere. Astronauts need a suit, filled with air, to breathe." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OYf-my-BH4" userLabel="Fact Reason">
+                        <rect key="frame" x="136" y="16" width="187" height="69"/>
                         <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FactReason" translatesAutoresizingMaskIntoConstraints="NO" id="JaI-fE-t8n">
+                        <rect key="frame" x="8" y="16" width="76" height="69"/>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="OYf-my-BH4" secondAttribute="trailing" constant="14" id="fip-RS-L6i"/>
                 <constraint firstAttribute="bottom" secondItem="OYf-my-BH4" secondAttribute="bottom" constant="8" id="je8-hk-n3H"/>
-                <constraint firstItem="OYf-my-BH4" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="14" id="mW5-Yb-SeT"/>
                 <constraint firstItem="OYf-my-BH4" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="4" id="ybJ-d3-rxt"/>
             </constraints>
             <size key="customSize" width="347" height="101"/>
             <connections>
                 <outlet property="factReasonLabel" destination="OYf-my-BH4" id="Ilp-OD-PVF"/>
             </connections>
-            <point key="canvasLocation" x="323.5" y="305.5"/>
+            <point key="canvasLocation" x="472.5" y="297.5"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="FactReason" width="155" height="167"/>
+    </resources>
 </document>
