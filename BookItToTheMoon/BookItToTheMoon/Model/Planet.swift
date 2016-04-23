@@ -16,16 +16,17 @@ protocol Planet {
     var planetTitle: String {get}
     var planetDescription: String {get}
     var planetImage: UIImage {get}
+    var planetFacts: [PlanetFact] {get}
     
 }
 
-
-/// 
-protocol PlanetFact {
-    
-    var factHeadline: String {get}
-    var factReason: String {get}
-    
-}
+//
+///// 
+//struct PlanetFact {
+//    
+//    let factHeadline: String
+//    let factReason: String
+//    
+//}
 
 
