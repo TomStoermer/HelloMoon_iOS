@@ -20,3 +20,12 @@ protocol Planet {
 }
 
 
+/// 
+protocol PlanetFact {
+    
+    var factHeadline: String {get}
+    var factReason: String {get}
+    
+}
+
+
