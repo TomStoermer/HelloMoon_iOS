@@ -67,7 +67,6 @@ class ViewController: UIViewController {
 }
 
 
-
 // MARK: - CMMotionManager
 
 extension ViewController {

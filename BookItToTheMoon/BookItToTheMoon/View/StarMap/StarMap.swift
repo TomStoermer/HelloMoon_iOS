@@ -20,6 +20,7 @@ class StarMap : UIScrollView {
 	
 	var currentPos = CGPoint(x: 0, y: 0)
 	var moonPosition = CGPoint(x: 0, y: 0)
+	var middelContentOffset = CGPoint(x: 0, y: 0)
 	
 	private var sizeOfOrgImage = CGSize(width: 0, height: 0)
 	private var middleMap : UIImageView = UIImageView()
@@ -72,7 +73,8 @@ class StarMap : UIScrollView {
 		
 		let screenBounds = UIScreen.mainScreen().bounds
 		let middleCenter = self.convertPoint(self.middleMap.center, fromView: self.middleMap)
-		self.contentOffset = CGPoint(x: middleCenter.x  - screenBounds.width / 2 , y: middleCenter.y - screenBounds.height / 2)
+		self.middelContentOffset = CGPoint(x: middleCenter.x  - screenBounds.width / 2 , y: middleCenter.y - screenBounds.height / 2)
+		self.contentOffset = self.middelContentOffset
 	}
 
 }
@@ -159,10 +161,7 @@ extension StarMap {
 	}
 	
 	func calcMovementFromAccel(accelRate : CMAcceleration) {
-		let vec = CGVector(dx: rotationAmount(accelRate.x, horizontal: true), dy: rotationAmount(accelRate.y, horizontal: false))
-		
-		self.changePositon(vec)
-		self.resetToOriginalMap()
+		self.contentOffset.y = self.middelContentOffset.y + (self.sizeOfOrgImage.height / 2) * CGFloat(accelRate.z)
 	}
 	
 	private func rotationAmount(rotation : Double, horizontal: Bool) -> Double {
