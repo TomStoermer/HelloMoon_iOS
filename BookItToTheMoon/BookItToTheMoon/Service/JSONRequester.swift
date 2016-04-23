@@ -20,7 +20,7 @@ class JSONRequester {
         return factsURL
     }
     
-    class func requestMoonFacts(completion: (moonFacts: [MoonFact]?, error: NSError?) -> Void) {
+    class func requestMoonFacts(completion: (moonFacts: [PlanetFact]?, error: NSError?) -> Void) {
         
         // read data from file URL
         guard let factsData = NSData(contentsOfURL: factsURL) else {
@@ -36,10 +36,10 @@ class JSONRequester {
         }
         
         // create the data models
-        let moonFacts = facts.map { (jsonDict: NSDictionary) -> MoonFact in
+        let moonFacts = facts.map { (jsonDict: NSDictionary) -> PlanetFact in
             
             // init MoonFact with json dictionary
-            return MoonFact(jsonDictionary: jsonDict)
+            return PlanetFact(jsonDictionary: jsonDict)
         }
         
         completion(moonFacts: moonFacts, error: nil)

@@ -47,13 +47,14 @@ struct Moon: Planet {
     
     let moonPhase: MoonPhrase
     var moonDistance: CGFloat
-    
+    var moonFacts: [PlanetFact]
     
     // -- Init
-    init(moonPhase: MoonPhrase, moonDistance: CGFloat) {
+    init(moonPhase: MoonPhrase, moonDistance: CGFloat, moonFacts: [PlanetFact]) {
         
         self.moonPhase = moonPhase
         self.moonDistance = moonDistance
+        self.moonFacts = moonFacts
     }
     
     
@@ -81,6 +82,10 @@ struct Moon: Planet {
     
     var planetImage: UIImage {
         return UIImage(named: "Moon")!
+    }
+    
+    var planetFacts: [PlanetFact] {
+        return moonFacts
     }
     
 }
