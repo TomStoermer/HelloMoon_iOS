@@ -20,6 +20,21 @@ enum MoonPhrase {
     case LastQuarter
     case WaningCrescent
     
+    /// Returns the localized moon phrase.
+    func localizedMoonPhrase() -> String {
+        
+        let moonPhrase: String!
+        
+        switch self {
+        case .NewMoon:
+            moonPhrase = NSLocalizedString("MoonPhrase_NewMoon", comment: "Moon Phrase ENUM Case")
+        default:
+            moonPhrase = NSLocalizedString("MoonPhrase_Default", comment: "Moon Phrase ENUM Case")
+        }
+        
+        return moonPhrase
+        
+    }
 }
 
 
