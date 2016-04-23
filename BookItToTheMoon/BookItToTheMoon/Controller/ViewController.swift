@@ -85,16 +85,31 @@ extension ViewController {
 			
             print("Attitude: - \(deviceMotion.attitude)")
             
-            print(deviceMotion.rotationRate)
+			//print(deviceMotion.rotationRate)
             
             // update labels
-//            self?.pitchValueLabel.text = "X: \(deviceMotion.rotationRate.x.format(".5")) °"
-//            self?.yawValueLabel.text = "Y: \(deviceMotion.rotationRate.y.format(".5")) °"
-//            self?.rollValueLabel.text = "Z: \(deviceMotion.rotationRate.z.format(".5")) °"
+			let chioce = 3
 			
-			self?.pitchValueLabel.text = "X: \(deviceMotion.gravity.x.format(".5")) °"
-			self?.yawValueLabel.text = "Y: \(deviceMotion.gravity.y.format(".5")) °"
-			self?.rollValueLabel.text = "Z: \(deviceMotion.gravity.z.format(".5")) °"
+			switch (chioce) {
+				
+			case 1:
+				self?.pitchValueLabel.text = "X: \(deviceMotion.rotationRate.x.format(".5")) °"
+				self?.yawValueLabel.text = "Y: \(deviceMotion.rotationRate.y.format(".5")) °"
+				self?.rollValueLabel.text = "Z: \(deviceMotion.rotationRate.z.format(".5")) °"
+			
+			case 2:
+				self?.pitchValueLabel.text = "X: \(deviceMotion.gravity.x.format(".5"))"
+				self?.yawValueLabel.text = "Y: \(deviceMotion.gravity.y.format(".5"))"
+				self?.rollValueLabel.text = "Z: \(deviceMotion.gravity.z.format(".5"))"
+			
+			case 3:
+				self?.pitchValueLabel.text = "X: \(deviceMotion.attitude.pitch.radiansToDegrees.format(".5")) °"
+				self?.yawValueLabel.text = "Y: \(deviceMotion.attitude.roll.radiansToDegrees.format(".5")) °"
+				self?.rollValueLabel.text = "Z: \(deviceMotion.attitude.yaw.radiansToDegrees.format(".5")) °"
+				
+			default:
+				break
+			}
 			
 			self?.starMap.calcMovementFromAccel(deviceMotion.gravity)
             
