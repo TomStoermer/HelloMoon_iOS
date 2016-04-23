@@ -44,7 +44,7 @@ class StarMap : UIScrollView {
 
 extension StarMap {
 	
-	func changePositon(vector2D : CGVector, length : Double) {
+	func changePositon(vector2D : CGVector) {
 		// factor in scaling
 		self.currentPos.x += vector2D.dx
 		self.currentPos.y += vector2D.dy
