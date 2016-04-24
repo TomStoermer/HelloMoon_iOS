@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BookItToTheMoon" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +15,125 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x2q-g3-IA4" customClass="StarMap" customModule="BookItToTheMoon" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="imageName" value="degTest"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="imageFromSB" value="degTest"/>
+                                </userDefinedRuntimeAttributes>
+                            </scrollView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="7gq-U4-Tcj">
+                                <rect key="frame" x="204" y="40" width="191" height="29"/>
+                                <segments>
+                                    <segment title="rotation"/>
+                                    <segment title="gravity"/>
+                                    <segment title="Attitude"/>
+                                </segments>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epc-Rg-Lgt">
+                                <rect key="frame" x="8" y="20" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.15496504929999999" green="0.94197162830000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCY-A2-kys" userLabel="Roll Value">
+                                <rect key="frame" x="20" y="496" width="37" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.15496504929999999" green="0.94197162830000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZe-cZ-DOd" userLabel="Moon Distance Angle Value">
+                                <rect key="frame" x="544" y="530" width="36" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.15496504929999999" green="0.94197162830000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v3X-Or-AOD" userLabel="Moon Horizontal Angle Value">
+                                <rect key="frame" x="544" y="560" width="36" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.15496504929999999" green="0.94197162830000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H8t-9O-cZn" userLabel="Pitch Value">
+                                <rect key="frame" x="20" y="526" width="37" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.15496504929999999" green="0.94197162830000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQt-BM-tZn" userLabel="Yaw Value">
+                                <rect key="frame" x="20" y="556" width="37" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.15496504929999999" green="0.94197162830000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uZF-99-w3m" userLabel="Present Planet Detail">
+                                <rect key="frame" x="250" y="550" width="100" height="30"/>
+                                <color key="backgroundColor" red="0.94121997479999997" green="0.9655240558" blue="0.97630341200000004" alpha="0.7302547089041096" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Present Planet"/>
+                                <connections>
+                                    <action selector="presentPlanetButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xg4-cj-7U2"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aQt-BM-tZn" firstAttribute="top" secondItem="H8t-9O-cZn" secondAttribute="bottom" constant="6" id="1Ad-wM-iiE"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="aQt-BM-tZn" secondAttribute="bottom" constant="20" id="1OG-UL-U2J"/>
+                            <constraint firstItem="H8t-9O-cZn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="2FR-5G-3vo"/>
+                            <constraint firstItem="aCY-A2-kys" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="4Yk-cz-l87"/>
+                            <constraint firstItem="epc-Rg-Lgt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="Agd-DJ-Km5"/>
+                            <constraint firstItem="uZF-99-w3m" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BMe-8o-O8i"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="v3X-Or-AOD" secondAttribute="bottom" constant="16" id="DjD-sm-3ow"/>
+                            <constraint firstItem="7gq-U4-Tcj" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="K5y-qZ-TPC"/>
+                            <constraint firstItem="7gq-U4-Tcj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="KN5-Sv-g1a"/>
+                            <constraint firstAttribute="trailing" secondItem="qZe-cZ-DOd" secondAttribute="trailing" constant="20" id="N6x-NL-7pV"/>
+                            <constraint firstItem="7gq-U4-Tcj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SJ6-6Z-JUI"/>
+                            <constraint firstItem="x2q-g3-IA4" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="SPY-Mk-ODk"/>
+                            <constraint firstItem="H8t-9O-cZn" firstAttribute="top" secondItem="aCY-A2-kys" secondAttribute="bottom" constant="6" id="Snw-09-rIz"/>
+                            <constraint firstItem="aQt-BM-tZn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="Ucz-0G-8TK"/>
+                            <constraint firstItem="v3X-Or-AOD" firstAttribute="top" secondItem="qZe-cZ-DOd" secondAttribute="bottom" constant="6" id="aaX-fY-tCN"/>
+                            <constraint firstAttribute="trailing" secondItem="x2q-g3-IA4" secondAttribute="trailing" id="daA-sH-bDf"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="x2q-g3-IA4" secondAttribute="bottom" id="fyf-Hq-Kme"/>
+                            <constraint firstItem="x2q-g3-IA4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="jog-gG-tar"/>
+                            <constraint firstAttribute="trailing" secondItem="v3X-Or-AOD" secondAttribute="trailing" constant="20" id="lHh-J4-GdM"/>
+                            <constraint firstItem="x2q-g3-IA4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="lrG-Iy-gxo"/>
+                            <constraint firstItem="epc-Rg-Lgt" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="pkA-Vh-atw"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="uZF-99-w3m" secondAttribute="bottom" constant="20" id="qYP-dp-80u"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="SPY-Mk-ODk"/>
+                                <exclude reference="K5y-qZ-TPC"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="headingLabel" destination="epc-Rg-Lgt" id="0be-KA-1fh"/>
+                        <outlet property="moonElevationAngleLabel" destination="qZe-cZ-DOd" id="yYx-1c-zLx"/>
+                        <outlet property="moonHorizontalAngleLabel" destination="v3X-Or-AOD" id="FU6-cl-vjS"/>
+                        <outlet property="pitchValueLabel" destination="H8t-9O-cZn" id="qv1-zT-0lB"/>
+                        <outlet property="rollValueLabel" destination="aCY-A2-kys" id="qbs-03-SiZ"/>
+                        <outlet property="segmentedControl" destination="7gq-U4-Tcj" id="BaC-uq-tae"/>
+                        <outlet property="starMap" destination="x2q-g3-IA4" id="Y3R-CS-1Ef"/>
+                        <outlet property="yawValueLabel" destination="aQt-BM-tZn" id="C2y-yc-a6g"/>
+                        <segue destination="2IY-3D-CbR" kind="presentation" identifier="presentPlanet" id="WaS-sP-zs9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
+        <!--PlanetDetail-->
+        <scene sceneID="qDp-hb-0g8">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PlanetDetail" id="2IY-3D-CbR" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KYv-eU-jtG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="790" y="60"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="degTest" width="979" height="564"/>
+    </resources>
 </document>

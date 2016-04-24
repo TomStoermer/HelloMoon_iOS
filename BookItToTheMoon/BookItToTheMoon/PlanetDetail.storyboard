@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="F0R-jQ-4ct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Moon View Controller-->
+        <scene sceneID="CTN-Xu-oKO">
+            <objects>
+                <viewController id="AbZ-nw-ZHI" customClass="MoonViewController" customModule="BookItToTheMoon" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vOo-Ex-hM5"/>
+                        <viewControllerLayoutGuide type="bottom" id="xpW-cO-XAy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="z55-uu-ZL7">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZCg-Qz-VPF" userLabel="Planet View">
+                                <rect key="frame" x="201" y="91" width="198" height="198"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="150" placeholderIntrinsicHeight="150" image="Moon" translatesAutoresizingMaskIntoConstraints="NO" id="imo-rQ-mPD">
+                                        <rect key="frame" x="24" y="24" width="150" height="150"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y2b-HG-vxi">
+                                        <rect key="frame" x="128" y="20" width="54" height="27"/>
+                                        <color key="backgroundColor" red="0.98404401539999997" green="0.94751296230000004" blue="0.22966552409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="16"/>
+                                        <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                                        <state key="normal" title="FACTS">
+                                            <color key="titleColor" red="0.1058823529" green="0.090196078430000007" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SGT-Bs-PrO" userLabel="MOVIE">
+                                        <rect key="frame" x="19" y="19" width="55" height="27"/>
+                                        <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="16"/>
+                                        <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                                        <state key="normal" title="MOVIE">
+                                            <color key="titleColor" red="0.1058823529" green="0.090196078430000007" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zTp-Rb-67h">
+                                        <rect key="frame" x="107" y="151" width="77" height="27"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="16"/>
+                                        <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                                        <state key="normal" title="MISSIONS">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SgH-OB-aBi">
+                                        <rect key="frame" x="-6" y="107" width="70" height="27"/>
+                                        <color key="backgroundColor" red="0.0" green="1" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="16"/>
+                                        <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                                        <state key="normal" title="QUOTES">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="zTp-Rb-67h" firstAttribute="bottom" secondItem="imo-rQ-mPD" secondAttribute="bottom" constant="4" id="0d6-Xg-lZU"/>
+                                    <constraint firstItem="y2b-HG-vxi" firstAttribute="top" secondItem="imo-rQ-mPD" secondAttribute="top" constant="-4" id="D1P-Cf-s2x"/>
+                                    <constraint firstItem="SGT-Bs-PrO" firstAttribute="leading" secondItem="imo-rQ-mPD" secondAttribute="leading" constant="-5" id="Dhy-fr-sfL"/>
+                                    <constraint firstItem="imo-rQ-mPD" firstAttribute="leading" secondItem="ZCg-Qz-VPF" secondAttribute="leading" constant="24" id="I6q-EP-hBx"/>
+                                    <constraint firstItem="zTp-Rb-67h" firstAttribute="trailing" secondItem="imo-rQ-mPD" secondAttribute="trailing" constant="10" id="Rva-hT-hHH"/>
+                                    <constraint firstItem="SgH-OB-aBi" firstAttribute="leading" secondItem="imo-rQ-mPD" secondAttribute="leading" constant="-30" id="iAa-r0-wag"/>
+                                    <constraint firstAttribute="trailing" secondItem="imo-rQ-mPD" secondAttribute="trailing" constant="24" id="kng-6q-T7o"/>
+                                    <constraint firstItem="SGT-Bs-PrO" firstAttribute="top" secondItem="imo-rQ-mPD" secondAttribute="top" constant="-5" id="kuO-H0-Ktl"/>
+                                    <constraint firstItem="SgH-OB-aBi" firstAttribute="bottom" secondItem="imo-rQ-mPD" secondAttribute="bottom" constant="-40" id="nZy-aa-8Lp"/>
+                                    <constraint firstAttribute="bottom" secondItem="imo-rQ-mPD" secondAttribute="bottom" constant="24" id="paq-g6-c8A"/>
+                                    <constraint firstItem="imo-rQ-mPD" firstAttribute="top" secondItem="ZCg-Qz-VPF" secondAttribute="top" constant="24" id="qjW-UT-ard"/>
+                                    <constraint firstItem="y2b-HG-vxi" firstAttribute="trailing" secondItem="imo-rQ-mPD" secondAttribute="trailing" constant="8" id="r5p-RJ-vmG"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Moon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLO-uk-hIN">
+                                <rect key="frame" x="218" y="44" width="164" height="35"/>
+                                <fontDescription key="fontDescription" name="GillSans-UltraBold" family="Gill Sans" pointSize="28"/>
+                                <color key="textColor" red="0.94121997479999997" green="0.9655240558" blue="0.97630341200000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Moon" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ony-ix-o1e" userLabel="Planet Description">
+                                <rect key="frame" x="160" y="321" width="280" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="E7s-Wy-ycp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="20"/>
+                                <color key="textColor" red="0.94121997479999997" green="0.9655240558" blue="0.97630341200000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ony-ix-o1e" firstAttribute="top" secondItem="ZCg-Qz-VPF" secondAttribute="bottom" constant="32" id="3Q0-9B-OdF"/>
+                            <constraint firstItem="Ony-ix-o1e" firstAttribute="centerX" secondItem="z55-uu-ZL7" secondAttribute="centerX" id="7wD-5z-kR2"/>
+                            <constraint firstItem="ZCg-Qz-VPF" firstAttribute="centerX" secondItem="z55-uu-ZL7" secondAttribute="centerX" id="I8T-Oj-Dia"/>
+                            <constraint firstItem="OLO-uk-hIN" firstAttribute="centerX" secondItem="z55-uu-ZL7" secondAttribute="centerX" id="LNb-wI-Lt6"/>
+                            <constraint firstItem="ZCg-Qz-VPF" firstAttribute="top" secondItem="OLO-uk-hIN" secondAttribute="bottom" constant="12" id="Xa9-p6-aBn"/>
+                            <constraint firstItem="OLO-uk-hIN" firstAttribute="top" secondItem="z55-uu-ZL7" secondAttribute="top" constant="44" id="nu0-zy-zUk"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="u5l-B9-DBr">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="mvs-ne-CjU">
+                            <connections>
+                                <action selector="closeBarButtonItemPressed:" destination="AbZ-nw-ZHI" id="AId-6C-I2e"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="factsButton" destination="y2b-HG-vxi" id="ViQ-De-PWl"/>
+                        <outlet property="missionsButton" destination="zTp-Rb-67h" id="2NO-FA-D41"/>
+                        <outlet property="movieButton" destination="SGT-Bs-PrO" id="FRW-3Y-M1l"/>
+                        <outlet property="planetContentView" destination="ZCg-Qz-VPF" id="fC0-UL-d35"/>
+                        <outlet property="planetDescriptionLabel" destination="Ony-ix-o1e" id="tvs-ov-hGJ"/>
+                        <outlet property="planetImageView" destination="imo-rQ-mPD" id="lI1-8N-zNb"/>
+                        <outlet property="planetTitleLabel" destination="OLO-uk-hIN" id="lnW-CY-pWO"/>
+                        <outlet property="quotesButton" destination="SgH-OB-aBi" id="yds-ma-OqL"/>
+                        <segue destination="dc0-1R-uIv" kind="show" identifier="showPlanetFacts" id="Kbu-VG-9z4"/>
+                        <segue destination="MY2-PD-i2e" kind="presentation" identifier="presentVideo" id="0PQ-10-zhK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vOA-XU-krF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1123" y="291"/>
+        </scene>
+        <!--Planet Facts View Controller-->
+        <scene sceneID="3Ma-A7-bCn">
+            <objects>
+                <viewController id="dc0-1R-uIv" customClass="PlanetFactsViewController" customModule="BookItToTheMoon" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="u7R-Q1-oUe"/>
+                        <viewControllerLayoutGuide type="bottom" id="Thr-5a-Gu1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BYC-La-c5c">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="a0e-dF-GZC">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ijn-JC-KPf">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="a0e-dF-GZC" firstAttribute="leading" secondItem="BYC-La-c5c" secondAttribute="leading" id="AoR-cG-19e"/>
+                            <constraint firstItem="Thr-5a-Gu1" firstAttribute="top" secondItem="a0e-dF-GZC" secondAttribute="bottom" id="dqg-FL-t2r"/>
+                            <constraint firstAttribute="trailing" secondItem="a0e-dF-GZC" secondAttribute="trailing" id="nsn-uN-5ME"/>
+                            <constraint firstItem="a0e-dF-GZC" firstAttribute="top" secondItem="BYC-La-c5c" secondAttribute="top" id="wJ7-6g-mJh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="a0e-dF-GZC" id="k14-dj-bYq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6YM-Iy-WUi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2353" y="291"/>
+        </scene>
+        <!--AV Player View Controller-->
+        <scene sceneID="2Fx-nR-C0Y">
+            <objects>
+                <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="MY2-PD-i2e" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fA6-By-gVM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2353" y="1055"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="MGv-EH-YCq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="F0R-jQ-4ct" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="l8N-FE-Ekw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="AbZ-nw-ZHI" kind="relationship" relationship="rootViewController" id="oUc-6Q-rEM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T7O-Wv-UKb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="311" y="291"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Moon" width="150" height="150"/>
+    </resources>
+</document>
