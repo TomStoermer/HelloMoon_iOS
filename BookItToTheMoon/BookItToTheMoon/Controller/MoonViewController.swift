@@ -22,6 +22,9 @@ class MoonViewController: PlanetViewController {
     @IBOutlet weak var planetImageView: UIImageView!
     @IBOutlet weak var factsButton: UIButton!
     @IBOutlet weak var movieButton: UIButton!
+    @IBOutlet weak var missionsButton: UIButton!
+    @IBOutlet weak var quotesButton: UIButton!
+
 
 
     let moon: Moon = Moon(moonPhase: .FullMoon, moonDistance: 375_000.0, moonFacts: [])
@@ -89,7 +92,7 @@ class MoonViewController: PlanetViewController {
         super.viewDidLayoutSubviews()
         
 //        rotateFactsButton()
-        rotateButtonsTowardsPlanet(buttons: [factsButton, movieButton])
+        rotateButtonsTowardsPlanet(buttons: [factsButton, movieButton, missionsButton, quotesButton])
     }
     
     private func startPlanetRotation(planetContentView contentView: UIView) {
@@ -139,6 +142,9 @@ class MoonViewController: PlanetViewController {
             var rotationTransform = CGAffineTransformIdentity
             rotationTransform = CGAffineTransformMakeRotation(angle - CGFloat(M_PI_2))
             button.transform = rotationTransform
+            
+            // Disable user interaction
+            button.userInteractionEnabled = false
         }
     }
     
@@ -252,7 +258,7 @@ extension MoonViewController {
         let myTouchLocation = touch.locationInView(view)
         
         // all flag buttons
-        let flagButtons = [factsButton!, movieButton!]
+        let flagButtons = [factsButton!, movieButton!, missionsButton!, quotesButton!]
         for flagButton in flagButtons {
             
             let flagButtonFrameConverted = (planetContentView.layer.presentationLayer() as! CALayer).convertRect((flagButton.layer.presentationLayer() as! CALayer).frame, toLayer: view.layer)
@@ -266,6 +272,12 @@ extension MoonViewController {
                 
             case (true, factsButton):
                 performSegueWithIdentifier(showPlanetFactsSegueIdentifier, sender: nil)
+                
+            case (true, missionsButton):
+                print("MISSIONS BUTTON PRESSED")
+                
+            case (true, quotesButton):
+                print("QUOTES BUTTON PRESSED")
                 
             default:
                 break

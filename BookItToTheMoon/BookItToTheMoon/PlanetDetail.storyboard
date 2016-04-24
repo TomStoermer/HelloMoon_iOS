@@ -23,7 +23,7 @@
                                         <rect key="frame" x="24" y="24" width="150" height="150"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y2b-HG-vxi">
-                                        <rect key="frame" x="120" y="24" width="54" height="27"/>
+                                        <rect key="frame" x="128" y="20" width="54" height="27"/>
                                         <color key="backgroundColor" red="0.98404401539999997" green="0.94751296230000004" blue="0.22966552409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="16"/>
                                         <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
@@ -32,7 +32,7 @@
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SGT-Bs-PrO" userLabel="MOVIE">
-                                        <rect key="frame" x="24" y="24" width="55" height="27"/>
+                                        <rect key="frame" x="19" y="19" width="55" height="27"/>
                                         <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="16"/>
                                         <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
@@ -40,17 +40,41 @@
                                             <color key="titleColor" red="0.1058823529" green="0.090196078430000007" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zTp-Rb-67h">
+                                        <rect key="frame" x="107" y="151" width="77" height="27"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="16"/>
+                                        <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                                        <state key="normal" title="MISSIONS">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SgH-OB-aBi">
+                                        <rect key="frame" x="-6" y="107" width="70" height="27"/>
+                                        <color key="backgroundColor" red="0.0" green="1" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="16"/>
+                                        <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                                        <state key="normal" title="QUOTES">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="y2b-HG-vxi" firstAttribute="top" secondItem="imo-rQ-mPD" secondAttribute="top" id="D1P-Cf-s2x"/>
-                                    <constraint firstItem="SGT-Bs-PrO" firstAttribute="leading" secondItem="imo-rQ-mPD" secondAttribute="leading" id="Dhy-fr-sfL"/>
+                                    <constraint firstItem="zTp-Rb-67h" firstAttribute="bottom" secondItem="imo-rQ-mPD" secondAttribute="bottom" constant="4" id="0d6-Xg-lZU"/>
+                                    <constraint firstItem="y2b-HG-vxi" firstAttribute="top" secondItem="imo-rQ-mPD" secondAttribute="top" constant="-4" id="D1P-Cf-s2x"/>
+                                    <constraint firstItem="SGT-Bs-PrO" firstAttribute="leading" secondItem="imo-rQ-mPD" secondAttribute="leading" constant="-5" id="Dhy-fr-sfL"/>
                                     <constraint firstItem="imo-rQ-mPD" firstAttribute="leading" secondItem="ZCg-Qz-VPF" secondAttribute="leading" constant="24" id="I6q-EP-hBx"/>
+                                    <constraint firstItem="zTp-Rb-67h" firstAttribute="trailing" secondItem="imo-rQ-mPD" secondAttribute="trailing" constant="10" id="Rva-hT-hHH"/>
+                                    <constraint firstItem="SgH-OB-aBi" firstAttribute="leading" secondItem="imo-rQ-mPD" secondAttribute="leading" constant="-30" id="iAa-r0-wag"/>
                                     <constraint firstAttribute="trailing" secondItem="imo-rQ-mPD" secondAttribute="trailing" constant="24" id="kng-6q-T7o"/>
-                                    <constraint firstItem="SGT-Bs-PrO" firstAttribute="top" secondItem="imo-rQ-mPD" secondAttribute="top" id="kuO-H0-Ktl"/>
+                                    <constraint firstItem="SGT-Bs-PrO" firstAttribute="top" secondItem="imo-rQ-mPD" secondAttribute="top" constant="-5" id="kuO-H0-Ktl"/>
+                                    <constraint firstItem="SgH-OB-aBi" firstAttribute="bottom" secondItem="imo-rQ-mPD" secondAttribute="bottom" constant="-40" id="nZy-aa-8Lp"/>
                                     <constraint firstAttribute="bottom" secondItem="imo-rQ-mPD" secondAttribute="bottom" constant="24" id="paq-g6-c8A"/>
                                     <constraint firstItem="imo-rQ-mPD" firstAttribute="top" secondItem="ZCg-Qz-VPF" secondAttribute="top" constant="24" id="qjW-UT-ard"/>
-                                    <constraint firstItem="y2b-HG-vxi" firstAttribute="trailing" secondItem="imo-rQ-mPD" secondAttribute="trailing" id="r5p-RJ-vmG"/>
+                                    <constraint firstItem="y2b-HG-vxi" firstAttribute="trailing" secondItem="imo-rQ-mPD" secondAttribute="trailing" constant="8" id="r5p-RJ-vmG"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Moon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLO-uk-hIN">
@@ -89,11 +113,13 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="factsButton" destination="y2b-HG-vxi" id="ViQ-De-PWl"/>
+                        <outlet property="missionsButton" destination="zTp-Rb-67h" id="2NO-FA-D41"/>
                         <outlet property="movieButton" destination="SGT-Bs-PrO" id="FRW-3Y-M1l"/>
                         <outlet property="planetContentView" destination="ZCg-Qz-VPF" id="fC0-UL-d35"/>
                         <outlet property="planetDescriptionLabel" destination="Ony-ix-o1e" id="tvs-ov-hGJ"/>
                         <outlet property="planetImageView" destination="imo-rQ-mPD" id="lI1-8N-zNb"/>
                         <outlet property="planetTitleLabel" destination="OLO-uk-hIN" id="lnW-CY-pWO"/>
+                        <outlet property="quotesButton" destination="SgH-OB-aBi" id="yds-ma-OqL"/>
                         <segue destination="dc0-1R-uIv" kind="show" identifier="showPlanetFacts" id="Kbu-VG-9z4"/>
                         <segue destination="MY2-PD-i2e" kind="presentation" identifier="presentVideo" id="0PQ-10-zhK"/>
                     </connections>
