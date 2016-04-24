@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreMotion
+import CoreLocation
 import GLKit
 
 class ViewController: UIViewController {
@@ -229,6 +230,13 @@ extension ViewController {
 }
 
 extension ViewController : LocationServiceDelegate {
+	
+	func didUpdateLocation(location: CLLocation) {
+		if !self.starMap.isMoonPlaced {
+			self.starMap.placeMoon(location)
+		}
+	}
+	
 	func didUpdateHeading(heading: Double) {
 		self.headingLabel.text = "\(heading)"
 		self.starMap.calcMovementFromHeading(heading)

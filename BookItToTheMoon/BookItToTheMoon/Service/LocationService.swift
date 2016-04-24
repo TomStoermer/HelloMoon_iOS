@@ -10,6 +10,7 @@ import Foundation
 import CoreLocation
 
 protocol LocationServiceDelegate {
+	func didUpdateLocation(location : CLLocation)
 	func didUpdateHeading(heading : Double)
 }
 
@@ -21,7 +22,10 @@ class LocationService : NSObject {
 	func startLocationUpdates() {
 		self.manager.delegate = self
 		
+		self.manager.requestAlwaysAuthorization()
+		
 		self.manager.startUpdatingHeading()
+		self.manager.startUpdatingLocation()
 	}
 	
 	func stopLocationUpdates() {
@@ -30,6 +34,15 @@ class LocationService : NSObject {
 }
 
 extension LocationService : CLLocationManagerDelegate {
+	
+	func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+		if let loc = locations.first {
+			if let del = delegate {
+				del.didUpdateLocation(loc)
+				self.manager.stopUpdatingLocation()
+			}
+		}
+	}
 	
 	func locationManager(manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
 		//let headingFloat = 0 - newHeading.magneticHeading;

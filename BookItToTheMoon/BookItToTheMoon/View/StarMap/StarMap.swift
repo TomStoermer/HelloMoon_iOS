@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import CoreMotion
+import CoreLocation
 
 
 class StarMap : UIScrollView {
@@ -23,8 +24,11 @@ class StarMap : UIScrollView {
 	var middelContentOffset = CGPoint(x: 0, y: 0)
 	var globeHalf : Double = 0
 	
+	var isMoonPlaced = false
+	
 	private var sizeOfOrgImage = CGSize(width: 0, height: 0)
 	private var middleMap : UIImageView = UIImageView()
+	private var moonImage : UIImageView?
 	
 	private var jitterBuffer : Double = 0
 	private var yawBuffer : Double = 0
@@ -80,7 +84,6 @@ class StarMap : UIScrollView {
 		self.middelContentOffset = CGPoint(x: middleCenter.x  - screenBounds.width / 2 , y: middleCenter.y - screenBounds.height / 2)
 		self.contentOffset = self.middelContentOffset
 	}
-
 }
 
 // MARK: - Public Domain
@@ -92,6 +95,35 @@ extension StarMap {
 		self.currentPos.x += vector2D.dx
 		self.currentPos.y += vector2D.dy
 		self.setContentOffset(self.currentPos, animated: true)
+	}
+	
+	func placeMoon(location : CLLocation) {
+		if self.isMoonPlaced {
+			return
+		}
+		self.isMoonPlaced = true
+		
+		let moonCoord = MoonPosition().getMoonPosition(NSDate(timeIntervalSinceNow: 0), lat: location.coordinate.latitude, lng: location.coordinate.longitude)
+		
+		let imageView = UIImageView(image: UIImage(named: "Moon"))
+		
+		let vertAngle = CGFloat(moonCoord.altitude.radiansToDegrees)
+		let horAngle = CGFloat(moonCoord.azimuth.radiansToDegrees)
+		
+		let halfWidth = self.sizeOfOrgImage.width / 2.0
+		let halfHeight = self.sizeOfOrgImage.height / 2.0
+		
+		let xCoord = (self.middleMap.frame.origin.x + halfWidth) + (halfWidth * horAngle / 180.0) //- (imageView.frame.size.width / 2.0)
+		let yCoord = (self.middleMap.frame.origin.y + halfHeight) + (halfHeight * vertAngle / 90.0) //- (imageView.frame.size.width / 2.0)
+		
+		let moonOrigin = CGPoint(x: xCoord , y: yCoord)
+		imageView.center = self.middleMap.center // moonOrigin
+		
+		self.addSubview(imageView)
+		self.moonImage = imageView
+		//TODO: correct Moon position + correct placing (orientation by south - currently north)
+		
+		print("placed moon at \(moonOrigin)")
 	}
 }
 
@@ -119,6 +151,7 @@ private extension StarMap {
 	func resetToOriginalMap() {
 		let boolPointPair = self.outOfBounds()
 		if boolPointPair.bool {
+			print("OutofVBounds \(boolPointPair) ")
 			if boolPointPair.point.x < 0 {
 				self.contentOffset.x += self.sizeOfOrgImage.width
 			}
@@ -162,15 +195,6 @@ extension StarMap {
         self.resetToOriginalMap()
 	}
 	
-	func calcMovementFromHeading(heading : Double) {
-//		let direction = (heading - 180.0) * (-1.0)
-//		let percent = 1.0 - (direction / 180)
-		let percent = (heading / 360)
-		self.contentOffset.x = self.middelContentOffset.x + sizeOfOrgImage.width * CGFloat(percent)
-		
-		self.resetToOriginalMap()
-	}
-	
 	func calcMovementFromAttitude(attitude : CMAttitude) {
 		
 		let yaw = attitude.yaw
@@ -189,13 +213,30 @@ extension StarMap {
 		}
 	}
 	
-	func yawDidChangeSign() -> Bool {
-		return false
+	
+	func calcMovementFromHeading(heading : Double) {
+		let direction = (heading - 180.0) * (-1.0)
+		var percent = 0.0
+//		let percent = (heading / 360)
+		
+		if direction > 0 {
+			percent = 1.0 - (direction/180.0)
+		}
+		else {
+			percent = -((direction/180.0) + 1.0)
+		}
+
+		let halfImage = sizeOfOrgImage.width / 2
+		self.contentOffset.x = (self.middleMap.frame.origin.x + halfImage) + halfImage * CGFloat(percent) - UIScreen.mainScreen().bounds.width/2
+//		print("Angle: \(heading.format(".2")); result: \(percent.format(".2")); \(halfImage); \(self.middleMap.frame)")
+		//print(self.middleMap.frame.origin.x + sizeOfOrgImage.width * CGFloat(percent), self.middleMap.frame)
+		
+		self.resetToOriginalMap()
 	}
 	
 	func calcMovementFromAccel(accelRate : CMAcceleration) {
 		self.contentOffset.y = self.middelContentOffset.y - (self.sizeOfOrgImage.height / 2) * CGFloat(accelRate.z) - self.sizeOfOrgImage.height
-		self.globeHalf = accelRate.z
+//		self.globeHalf = accelRate.z
 	}
 	
 	private func rotationAmount(rotation : Double, horizontal: Bool) -> Double {
