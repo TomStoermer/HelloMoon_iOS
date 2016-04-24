@@ -169,7 +169,7 @@ private extension StarMap {
 	}
 	
 	func outOfBounds() -> (bool : Bool,point: CGPoint) {
-		let posToMid = self.convertPoint(self.contentOffset, toView: self.middleMap)
+		let posToMid = self.convertPoint(self.contentOffset, toView: self.middleMap) // self.contentOffset == top/Left Corner
 		if posToMid.x < 0 || posToMid.y < 0 {
 			return (true, posToMid)
 		}
@@ -177,6 +177,11 @@ private extension StarMap {
 			return (true , posToMid)
 		}
 		return (false, posToMid)
+		
+		/* possible correction:
+		calculate the vector between self.contentOffset and self.middleContentOffset to know how far away we are form the center
+		-> if one value surpasses the bounds of our image in the middle we have to reset
+		*/
 	}
 }
 
@@ -189,9 +194,9 @@ extension StarMap {
 	// z -> pos change -> tilting phone left
 	
 	func calcMovementFromGyro(rotationRate : CMRotationRate) {
-		let vec = CGVector(dx: rotationAmount(rotationRate.x, horizontal: true), dy: rotationAmount(rotationRate.y, horizontal: false))
+		//let vec = CGVector(dx: rotationAmount(rotationRate.x, horizontal: true), dy: rotationAmount(rotationRate.y, horizontal: false))
 		
-		self.changePositon(vec)
+		//self.changePositon(vec)
         self.resetToOriginalMap()
 	}
 	
@@ -235,18 +240,24 @@ extension StarMap {
 	}
 	
 	func calcMovementFromAccel(accelRate : CMAcceleration) {
-		self.contentOffset.y = self.middelContentOffset.y - (self.sizeOfOrgImage.height / 2) * CGFloat(accelRate.z) - self.sizeOfOrgImage.height
-//		self.globeHalf = accelRate.z
-	}
-	
-	private func rotationAmount(rotation : Double, horizontal: Bool) -> Double {
-		let degrees = rotation.radiansToDegrees
-		if horizontal {
-			return (180.0 / 100.0 * degrees) * Double(self.sizeOfOrgImage.width)
+		if accelRate.z > 0 {
+			self.contentOffset.y = self.middelContentOffset.y - (self.sizeOfOrgImage.height / 2) * CGFloat(accelRate.z) - self.sizeOfOrgImage.height + self.sizeOfOrgImage.height
 		}
 		else {
-			return (90.0 / 100.0 * degrees) * Double(self.sizeOfOrgImage.height)
+			self.contentOffset.y = self.middelContentOffset.y - (self.sizeOfOrgImage.height / 2) * CGFloat(accelRate.z) - self.sizeOfOrgImage.height
 		}
+//		self.globeHalf = accelRate.z
+		self.resetToOriginalMap()
 	}
+	
+//	private func rotationAmount(rotation : Double, horizontal: Bool) -> Double {
+//		let degrees = rotation.radiansToDegrees
+//		if horizontal {
+//			return (180.0 / 100.0 * degrees) * Double(self.sizeOfOrgImage.width)
+//		}
+//		else {
+//			return (90.0 / 100.0 * degrees) * Double(self.sizeOfOrgImage.height)
+//		}
+//	}
 	
 }

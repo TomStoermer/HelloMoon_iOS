@@ -93,9 +93,7 @@ extension ViewController {
                 return
             }
 			
-			//print("Attitude: - \(deviceMotion.attitude)")
-            
-			//print(deviceMotion.rotationRate)
+			self?.starMap.calcMovementFromAccel(deviceMotion.gravity)
             
             // update labels
 			switch (self!.segmentedControl.selectedSegmentIndex) {
@@ -117,17 +115,13 @@ extension ViewController {
 			default:
 				break
 			}
-			
-			self?.starMap.calcMovementFromAccel(deviceMotion.gravity)
-			//self?.starMap.calcMovementFromAttitude(deviceMotion.attitude)
-            
         }
     }
     
     func startDeviceGyro() {
         
-        let motionMovingRate = CGFloat(4)
-        
+//        let motionMovingRate = CGFloat(4)
+		
         guard motionManager.deviceMotionAvailable == true else {
             print("WARNING: Device Motion is not available.")
             return
@@ -167,7 +161,6 @@ extension ViewController {
         self.pitchValueLabel.text = "X: \(ceil((gyroData.rotationRate.x * 180.0 / M_PI)).format(".5")) °"
         self.yawValueLabel.text = "Y: \(ceil((gyroData.rotationRate.y * 180.0 / M_PI)).format(".5")) °"
         self.rollValueLabel.text = "Z: \(ceil((gyroData.rotationRate.z * 180.0 / M_PI)).format(".5")) °"
-        
     }
     
 }
