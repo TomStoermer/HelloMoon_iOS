@@ -2,7 +2,8 @@
 
 HelloMoon is an iOS App, developed for the NASA Space Apps challenge 2016. 
 
-The challenge, named "Book it to the moon", was to create an interactive app for children, that uses smart phone and tablet sensory to locate the Moon (at any time of the day, even below horizon). If you have found the moon, the app will show more informations about the moon, e.g. quotes, facts, information about the apollo missions and a movie.
+The challenge, named "Book it to the moon", was to create an interactive app for children, that uses smart phone and tablet sensory to locate the Moon (at any time of the day, even below horizon). 
+The goal of our app is to find the moon by moving your phone. If you have found the moon, the app will show basic informations about the moon e.g. the current distance and the moon phase. Furthermore it will give you the possibilities to read more about the moon, e.g. quotes, facts, information about the apollo missions. Finally there is a little movie about a fictive flight to the moon. 
 
 ![alt text](link "Screenshot")
 
