@@ -21,7 +21,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="image" keyPath="imageName" value="degTest"/>
-                                    <userDefinedRuntimeAttribute type="image" keyPath="imageFromSB" value="degTest"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="imageFromSB" value="stars"/>
                                 </userDefinedRuntimeAttributes>
                             </scrollView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="7gq-U4-Tcj">
@@ -135,5 +135,6 @@
     </scenes>
     <resources>
         <image name="degTest" width="979" height="564"/>
+        <image name="stars" width="1024" height="512"/>
     </resources>
 </document>
