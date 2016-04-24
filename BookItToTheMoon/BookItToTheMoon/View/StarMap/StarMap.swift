@@ -25,6 +25,9 @@ class StarMap : UIScrollView {
 	
 	private var sizeOfOrgImage = CGSize(width: 0, height: 0)
 	private var middleMap : UIImageView = UIImageView()
+	
+	private var jitterBuffer : Double = 0
+	private var yawBuffer : Double = 0
 
 	required init?(coder aDecoder: NSCoder) {
 		//fatalError("init(coder:) has not been implemented")
@@ -159,20 +162,35 @@ extension StarMap {
         self.resetToOriginalMap()
 	}
 	
+	func calcMovementFromHeading(heading : Double) {
+//		let direction = (heading - 180.0) * (-1.0)
+//		let percent = 1.0 - (direction / 180)
+		let percent = (heading / 360)
+		self.contentOffset.x = self.middelContentOffset.x + sizeOfOrgImage.width * CGFloat(percent)
+		
+		self.resetToOriginalMap()
+	}
+	
 	func calcMovementFromAttitude(attitude : CMAttitude) {
 		
+		let yaw = attitude.yaw
+		
 		let fullAngle = 180.0
-		let angle = attitude.yaw.radiansToDegrees
+		let angle = yaw.radiansToDegrees
 		let percent = abs(angle / fullAngle)
 		
 		if self.globeHalf > 0 {
 			let newPos = self.sizeOfOrgImage.width / 2.0 * CGFloat(percent)
-			self.contentOffset.x = self.middelContentOffset.x + newPos * (angle < 0 ? 1 : -1)
+			self.contentOffset.x = self.middelContentOffset.x + newPos * (angle < 0 ? 1 : -1) - sizeOfOrgImage.width
 		}
 		else if self.globeHalf < 0 {
 			let newPos = self.middelContentOffset.x / 2.0 * CGFloat((1-percent))
-			self.contentOffset.x = self.middelContentOffset.x + newPos * (angle < 0 ? -1 : 1)
+			self.contentOffset.x = self.middelContentOffset.x + newPos * (angle < 0 ? -1 : 1) - sizeOfOrgImage.width
 		}
+	}
+	
+	func yawDidChangeSign() -> Bool {
+		return false
 	}
 	
 	func calcMovementFromAccel(accelRate : CMAcceleration) {

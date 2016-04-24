@@ -12,6 +12,7 @@
 		C419DDBF1CCCC76600F73BA3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C419DDBE1CCCC76500F73BA3 /* AVFoundation.framework */; };
 		C419DDC21CCCC7BB00F73BA3 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C419DDC11CCCC7BB00F73BA3 /* AVKit.framework */; };
 		C419DDC61CCCD10E00F73BA3 /* MoonMovie.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C419DDC51CCCD10E00F73BA3 /* MoonMovie.mp4 */; };
+		507DE9E11CCCCBAC003411FD /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507DE9E01CCCCBAC003411FD /* LocationService.swift */; };
 		C4FD55AF1CCA73DE009C68D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FD55AE1CCA73DE009C68D8 /* AppDelegate.swift */; };
 		C4FD55B11CCA73DE009C68D8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FD55B01CCA73DE009C68D8 /* ViewController.swift */; };
 		C4FD55B41CCA73DE009C68D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4FD55B21CCA73DE009C68D8 /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 		C419DDBE1CCCC76500F73BA3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C419DDC11CCCC7BB00F73BA3 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		C419DDC51CCCD10E00F73BA3 /* MoonMovie.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = MoonMovie.mp4; sourceTree = "<group>"; };
+		507DE9E01CCCCBAC003411FD /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		C4FD55AB1CCA73DE009C68D8 /* BookItToTheMoon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookItToTheMoon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4FD55AE1CCA73DE009C68D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4FD55B01CCA73DE009C68D8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 			children = (
 				C4FD55F01CCBF219009C68D8 /* facts.json */,
 				C4FD55D81CCBBB14009C68D8 /* JSONRequester.swift */,
+				507DE9E01CCCCBAC003411FD /* LocationService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -254,6 +257,7 @@
 				TargetAttributes = {
 					C4FD55AA1CCA73DE009C68D8 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 676GQZ57X4;
 					};
 				};
 			};
@@ -310,6 +314,7 @@
 				501327121CCBA1BA0094F084 /* Utility.swift in Sources */,
 				C4FD55E61CCBDECE009C68D8 /* PlanetFactHeadlineCell.swift in Sources */,
 				C4FD55D11CCBA797009C68D8 /* MoonPosition.swift in Sources */,
+				507DE9E11CCCCBAC003411FD /* LocationService.swift in Sources */,
 				C4FD55C61CCB8D68009C68D8 /* Planet.swift in Sources */,
 				C4FD55E11CCBCA6D009C68D8 /* PlanetFactsViewController.swift in Sources */,
 				C4FD55CF1CCB9ADD009C68D8 /* MoonViewController.swift in Sources */,
@@ -437,11 +442,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = BookItToTheMoon/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SpaceAppsChallenge.BookItToTheMoon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -449,11 +457,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = BookItToTheMoon/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SpaceAppsChallenge.BookItToTheMoon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
