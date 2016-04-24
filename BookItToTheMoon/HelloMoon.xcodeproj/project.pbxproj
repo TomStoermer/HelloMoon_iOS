@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		501327121CCBA1BA0094F084 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501327111CCBA1BA0094F084 /* Utility.swift */; };
 		50555E8C1CCA8C520045D66C /* StarMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50555E8B1CCA8C520045D66C /* StarMap.swift */; };
+		C419DDBF1CCCC76600F73BA3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C419DDBE1CCCC76500F73BA3 /* AVFoundation.framework */; };
+		C419DDC21CCCC7BB00F73BA3 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C419DDC11CCCC7BB00F73BA3 /* AVKit.framework */; };
+		C419DDC61CCCD10E00F73BA3 /* MoonMovie.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C419DDC51CCCD10E00F73BA3 /* MoonMovie.mp4 */; };
 		C4FD55AF1CCA73DE009C68D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FD55AE1CCA73DE009C68D8 /* AppDelegate.swift */; };
 		C4FD55B11CCA73DE009C68D8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FD55B01CCA73DE009C68D8 /* ViewController.swift */; };
 		C4FD55B41CCA73DE009C68D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4FD55B21CCA73DE009C68D8 /* Main.storyboard */; };
@@ -36,6 +39,9 @@
 /* Begin PBXFileReference section */
 		501327111CCBA1BA0094F084 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		50555E8B1CCA8C520045D66C /* StarMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StarMap.swift; path = View/StarMap/StarMap.swift; sourceTree = "<group>"; };
+		C419DDBE1CCCC76500F73BA3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		C419DDC11CCCC7BB00F73BA3 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		C419DDC51CCCD10E00F73BA3 /* MoonMovie.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = MoonMovie.mp4; sourceTree = "<group>"; };
 		C4FD55AB1CCA73DE009C68D8 /* BookItToTheMoon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookItToTheMoon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4FD55AE1CCA73DE009C68D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4FD55B01CCA73DE009C68D8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +73,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C419DDC21CCCC7BB00F73BA3 /* AVKit.framework in Frameworks */,
+				C419DDBF1CCCC76600F73BA3 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,11 +98,21 @@
 			name = StarMap;
 			sourceTree = "<group>";
 		};
+		C419DDC01CCCC77400F73BA3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C419DDC11CCCC7BB00F73BA3 /* AVKit.framework */,
+				C419DDBE1CCCC76500F73BA3 /* AVFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C4FD55A21CCA73DE009C68D8 = {
 			isa = PBXGroup;
 			children = (
 				C4FD55AD1CCA73DE009C68D8 /* BookItToTheMoon */,
 				C4FD55AC1CCA73DE009C68D8 /* Products */,
+				C419DDC01CCCC77400F73BA3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,7 +127,7 @@
 		C4FD55AD1CCA73DE009C68D8 /* BookItToTheMoon */ = {
 			isa = PBXGroup;
 			children = (
-				C4FD55F21CCC142E009C68D8 /* Sound */,
+				C4FD55F21CCC142E009C68D8 /* Media */,
 				C4FD55D71CCBB985009C68D8 /* Service */,
 				C4FD55CB1CCB937E009C68D8 /* Storyboard */,
 				C4FD55C71CCB9042009C68D8 /* Assets */,
@@ -194,11 +212,13 @@
 			path = View/PlanetFacts;
 			sourceTree = "<group>";
 		};
-		C4FD55F21CCC142E009C68D8 /* Sound */ = {
+		C4FD55F21CCC142E009C68D8 /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				C419DDC51CCCD10E00F73BA3 /* MoonMovie.mp4 */,
 				C4FD55F31CCC1442009C68D8 /* AmbientSound.wav */,
 			);
+			name = Media;
 			path = Sound;
 			sourceTree = "<group>";
 		};
@@ -265,6 +285,7 @@
 				C4FD55ED1CCBDF11009C68D8 /* PlanetFactReasonCell.xib in Resources */,
 				C4FD55F11CCBF219009C68D8 /* facts.json in Resources */,
 				C4FD55B91CCA73DE009C68D8 /* LaunchScreen.storyboard in Resources */,
+				C419DDC61CCCD10E00F73BA3 /* MoonMovie.mp4 in Resources */,
 				C4FD55B61CCA73DE009C68D8 /* Assets.xcassets in Resources */,
 				C4FD55CD1CCB9396009C68D8 /* PlanetDetail.storyboard in Resources */,
 				C4FD55B41CCA73DE009C68D8 /* Main.storyboard in Resources */,

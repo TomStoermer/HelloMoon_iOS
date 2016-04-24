@@ -20,7 +20,7 @@
                                 <rect key="frame" x="225" y="111" width="150" height="150"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y2b-HG-vxi">
-                                <rect key="frame" x="321" y="111" width="54" height="27"/>
+                                <rect key="frame" x="321" y="119" width="54" height="27"/>
                                 <color key="backgroundColor" red="0.98404401539999997" green="0.94751296230000004" blue="0.22966552409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="16"/>
                                 <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
@@ -29,6 +29,18 @@
                                 </state>
                                 <connections>
                                     <action selector="planetFactsButtonPressed:" destination="AbZ-nw-ZHI" eventType="touchUpInside" id="BC9-ag-adi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SGT-Bs-PrO" userLabel="MOVIE">
+                                <rect key="frame" x="233" y="105" width="55" height="27"/>
+                                <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="16"/>
+                                <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                                <state key="normal" title="MOVIE">
+                                    <color key="titleColor" red="0.1058823529" green="0.090196078430000007" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="movieButtonPressed:" destination="AbZ-nw-ZHI" eventType="touchUpInside" id="ZDI-L8-tkB"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Moon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLO-uk-hIN">
@@ -53,8 +65,10 @@
                             <constraint firstItem="Ony-ix-o1e" firstAttribute="centerX" secondItem="z55-uu-ZL7" secondAttribute="centerX" id="7wD-5z-kR2"/>
                             <constraint firstItem="y2b-HG-vxi" firstAttribute="trailing" secondItem="imo-rQ-mPD" secondAttribute="trailing" id="DVs-O6-Zgi"/>
                             <constraint firstItem="OLO-uk-hIN" firstAttribute="centerX" secondItem="z55-uu-ZL7" secondAttribute="centerX" id="LNb-wI-Lt6"/>
-                            <constraint firstItem="y2b-HG-vxi" firstAttribute="top" secondItem="imo-rQ-mPD" secondAttribute="top" id="Mcg-NP-QAX"/>
+                            <constraint firstItem="SGT-Bs-PrO" firstAttribute="top" secondItem="imo-rQ-mPD" secondAttribute="top" constant="-6" id="MK3-c5-Gts"/>
+                            <constraint firstItem="y2b-HG-vxi" firstAttribute="top" secondItem="imo-rQ-mPD" secondAttribute="top" constant="8" id="Mcg-NP-QAX"/>
                             <constraint firstItem="Ony-ix-o1e" firstAttribute="top" secondItem="imo-rQ-mPD" secondAttribute="bottom" constant="35" id="Uiw-C5-sq6"/>
+                            <constraint firstItem="SGT-Bs-PrO" firstAttribute="leading" secondItem="imo-rQ-mPD" secondAttribute="leading" constant="8" id="n2n-pB-MCa"/>
                             <constraint firstItem="OLO-uk-hIN" firstAttribute="top" secondItem="z55-uu-ZL7" secondAttribute="top" constant="44" id="nu0-zy-zUk"/>
                             <constraint firstItem="imo-rQ-mPD" firstAttribute="top" secondItem="OLO-uk-hIN" secondAttribute="bottom" constant="32" id="sjW-sy-JFP"/>
                         </constraints>
@@ -68,11 +82,13 @@
                     </navigationItem>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="factsButton" destination="y2b-HG-vxi" id="ViQ-De-PWl"/>
+                        <outlet property="movieButton" destination="SGT-Bs-PrO" id="FRW-3Y-M1l"/>
                         <outlet property="planetDescriptionLabel" destination="Ony-ix-o1e" id="tvs-ov-hGJ"/>
-                        <outlet property="planetFactsButton" destination="y2b-HG-vxi" id="JVt-Mp-ukM"/>
                         <outlet property="planetImageView" destination="imo-rQ-mPD" id="lI1-8N-zNb"/>
                         <outlet property="planetTitleLabel" destination="OLO-uk-hIN" id="lnW-CY-pWO"/>
                         <segue destination="dc0-1R-uIv" kind="show" identifier="showPlanetFacts" id="Kbu-VG-9z4"/>
+                        <segue destination="MY2-PD-i2e" kind="presentation" identifier="presentVideo" id="0PQ-10-zhK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vOA-XU-krF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -116,7 +132,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6YM-Iy-WUi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1831" y="291"/>
+            <point key="canvasLocation" x="2353" y="291"/>
+        </scene>
+        <!--AV Player View Controller-->
+        <scene sceneID="2Fx-nR-C0Y">
+            <objects>
+                <avPlayerViewController videoGravity="AVLayerVideoGravityResizeAspect" id="MY2-PD-i2e" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fA6-By-gVM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2353" y="1055"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MGv-EH-YCq">

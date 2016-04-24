@@ -8,6 +8,9 @@
 
 import UIKit
 import AVFoundation
+import AVKit
+
+// TODO: - refactor planet image view to planet view with image and buttons
 
 class MoonViewController: PlanetViewController {
 
@@ -15,11 +18,14 @@ class MoonViewController: PlanetViewController {
     @IBOutlet weak var planetImageView: UIImageView!
     @IBOutlet weak var planetTitleLabel: UILabel!
     @IBOutlet weak var planetDescriptionLabel: UILabel!
-    
-    @IBOutlet weak var planetFactsButton: UIButton!
+    @IBOutlet weak var factsButton: UIButton!
+    @IBOutlet weak var movieButton: UIButton!
+
 
     let moon: Moon = Moon(moonPhase: .FullMoon, moonDistance: 375_000.0, moonFacts: [])
     private var audioPlayer: AVAudioPlayer?
+    private let presentVideoSegueIdentifier = "presentVideo"
+    private let showPlanetFactsSegueIdentifier = "showPlanetFacts"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,7 +84,8 @@ class MoonViewController: PlanetViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        rotateFactsButton()
+//        rotateFactsButton()
+        rotateButtonsTowardsPlanet(buttons: [factsButton, movieButton])
     }
     
     private func startPlanetRotation(planetImageView: UIImageView) {
@@ -116,25 +123,40 @@ class MoonViewController: PlanetViewController {
         backgroundGradient?.addAnimation(animation, forKey: "animateGradientLocation")
     }
     
-    private func rotateFactsButton() {
-        
-        /*
-         CGFloat angle = atan2f(point2.y - point1.y, point2.x - point1.x);
-         CGAffineTransform rotationTransform = CGAffineTransformIdentity;
-         rotationTransform = CGAffineTransformMakeRotation(angle);
-         arrow.transform = rotationTransform;
-         */
-        
+    private func rotateButtonsTowardsPlanet(buttons buttons: [UIButton]) {
+
+        // center of planet
         let planetCenter = planetImageView.center
-        let factsCenter = planetFactsButton.center
-        
-        let angle = atan2(planetCenter.y - factsCenter.y, planetCenter.x - factsCenter.x)
-        var rotationTransform = CGAffineTransformIdentity
-        rotationTransform = CGAffineTransformMakeRotation(angle - CGFloat(M_PI_2))
-//        rotationTransform = CGAffineTransformMakeRotation(CGFloat(M_PI_2)) // add 90 degree
-        planetFactsButton.transform = rotationTransform
-        
+
+        for button in buttons {
+            
+            let buttonCenter = button.center
+            let angle = atan2(planetCenter.y - buttonCenter.y, planetCenter.x - buttonCenter.x)
+            var rotationTransform = CGAffineTransformIdentity
+            rotationTransform = CGAffineTransformMakeRotation(angle - CGFloat(M_PI_2))
+            button.transform = rotationTransform
+        }
     }
+    
+//    private func rotateFactsButton() {
+//        
+//        /*
+//         CGFloat angle = atan2f(point2.y - point1.y, point2.x - point1.x);
+//         CGAffineTransform rotationTransform = CGAffineTransformIdentity;
+//         rotationTransform = CGAffineTransformMakeRotation(angle);
+//         arrow.transform = rotationTransform;
+//         */
+//        
+//        let planetCenter = planetImageView.center
+//        let factsCenter = factsButton.center
+//        
+//        let angle = atan2(planetCenter.y - factsCenter.y, planetCenter.x - factsCenter.x)
+//        var rotationTransform = CGAffineTransformIdentity
+//        rotationTransform = CGAffineTransformMakeRotation(angle - CGFloat(M_PI_2))
+////        rotationTransform = CGAffineTransformMakeRotation(CGFloat(M_PI_2)) // add 90 degree
+//        factsButton.transform = rotationTransform
+//        
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -142,15 +164,35 @@ class MoonViewController: PlanetViewController {
     }
     
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        switch segue.identifier {
+            
+        case .Some(presentVideoSegueIdentifier):
+            
+            // setup player view controller
+            let playerVC = segue.destinationViewController as!
+            AVPlayerViewController
+            playerVC.allowsPictureInPicturePlayback = false
+
+            // set the movie source
+            let movieURL = NSBundle.mainBundle().URLForResource("MoonMovie", withExtension: "mp4")
+            playerVC.player = AVPlayer(URL: movieURL!)
+            
+            // stop sound
+            audioPlayer?.stop()
+                        
+        default:
+            break
+            
+        }
+        
     }
-    */
 
 }
 
@@ -171,6 +213,24 @@ extension MoonViewController {
     
     @IBAction func planetFactsButtonPressed(sender: UIButton) {
         
-        performSegueWithIdentifier("showPlanetFacts", sender: nil)
+        performSegueWithIdentifier(showPlanetFactsSegueIdentifier, sender: nil)
+    }
+
+    @IBAction func movieButtonPressed(sender: UIButton) {
+        
+        performSegueWithIdentifier(presentVideoSegueIdentifier, sender: nil)
+    }
+    
+    @IBAction func poemButtonPressed(sender: UIButton) {
+                
+    }
+    
+    @IBAction func quotesButtonPressed(sender: UIButton) {
+        
+    }
+    
+    @IBAction func galleryButtonPressed(sender: UIButton) {
+        
     }
 }
+
