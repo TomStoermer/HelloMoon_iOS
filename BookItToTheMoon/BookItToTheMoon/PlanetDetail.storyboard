@@ -92,7 +92,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="a0e-dF-GZC">
-                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ijn-JC-KPf">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -107,7 +107,7 @@
                             <constraint firstItem="a0e-dF-GZC" firstAttribute="leading" secondItem="BYC-La-c5c" secondAttribute="leading" id="AoR-cG-19e"/>
                             <constraint firstItem="Thr-5a-Gu1" firstAttribute="top" secondItem="a0e-dF-GZC" secondAttribute="bottom" id="dqg-FL-t2r"/>
                             <constraint firstAttribute="trailing" secondItem="a0e-dF-GZC" secondAttribute="trailing" id="nsn-uN-5ME"/>
-                            <constraint firstItem="a0e-dF-GZC" firstAttribute="top" secondItem="u7R-Q1-oUe" secondAttribute="bottom" id="ujv-eP-C81"/>
+                            <constraint firstItem="a0e-dF-GZC" firstAttribute="top" secondItem="BYC-La-c5c" secondAttribute="top" id="wJ7-6g-mJh"/>
                         </constraints>
                     </view>
                     <connections>
