@@ -16,33 +16,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Moon" translatesAutoresizingMaskIntoConstraints="NO" id="imo-rQ-mPD">
-                                <rect key="frame" x="225" y="111" width="150" height="150"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y2b-HG-vxi">
-                                <rect key="frame" x="321" y="119" width="54" height="27"/>
-                                <color key="backgroundColor" red="0.98404401539999997" green="0.94751296230000004" blue="0.22966552409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="16"/>
-                                <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
-                                <state key="normal" title="FACTS">
-                                    <color key="titleColor" red="0.1058823529" green="0.090196078430000007" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="planetFactsButtonPressed:" destination="AbZ-nw-ZHI" eventType="touchUpInside" id="BC9-ag-adi"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SGT-Bs-PrO" userLabel="MOVIE">
-                                <rect key="frame" x="233" y="105" width="55" height="27"/>
-                                <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="16"/>
-                                <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
-                                <state key="normal" title="MOVIE">
-                                    <color key="titleColor" red="0.1058823529" green="0.090196078430000007" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="movieButtonPressed:" destination="AbZ-nw-ZHI" eventType="touchUpInside" id="ZDI-L8-tkB"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZCg-Qz-VPF" userLabel="Planet View">
+                                <rect key="frame" x="201" y="91" width="198" height="198"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="150" placeholderIntrinsicHeight="150" image="Moon" translatesAutoresizingMaskIntoConstraints="NO" id="imo-rQ-mPD">
+                                        <rect key="frame" x="24" y="24" width="150" height="150"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y2b-HG-vxi">
+                                        <rect key="frame" x="120" y="24" width="54" height="27"/>
+                                        <color key="backgroundColor" red="0.98404401539999997" green="0.94751296230000004" blue="0.22966552409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="16"/>
+                                        <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                                        <state key="normal" title="FACTS">
+                                            <color key="titleColor" red="0.1058823529" green="0.090196078430000007" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SGT-Bs-PrO" userLabel="MOVIE">
+                                        <rect key="frame" x="24" y="24" width="55" height="27"/>
+                                        <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="16"/>
+                                        <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                                        <state key="normal" title="MOVIE">
+                                            <color key="titleColor" red="0.1058823529" green="0.090196078430000007" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="y2b-HG-vxi" firstAttribute="top" secondItem="imo-rQ-mPD" secondAttribute="top" id="D1P-Cf-s2x"/>
+                                    <constraint firstItem="SGT-Bs-PrO" firstAttribute="leading" secondItem="imo-rQ-mPD" secondAttribute="leading" id="Dhy-fr-sfL"/>
+                                    <constraint firstItem="imo-rQ-mPD" firstAttribute="leading" secondItem="ZCg-Qz-VPF" secondAttribute="leading" constant="24" id="I6q-EP-hBx"/>
+                                    <constraint firstAttribute="trailing" secondItem="imo-rQ-mPD" secondAttribute="trailing" constant="24" id="kng-6q-T7o"/>
+                                    <constraint firstItem="SGT-Bs-PrO" firstAttribute="top" secondItem="imo-rQ-mPD" secondAttribute="top" id="kuO-H0-Ktl"/>
+                                    <constraint firstAttribute="bottom" secondItem="imo-rQ-mPD" secondAttribute="bottom" constant="24" id="paq-g6-c8A"/>
+                                    <constraint firstItem="imo-rQ-mPD" firstAttribute="top" secondItem="ZCg-Qz-VPF" secondAttribute="top" constant="24" id="qjW-UT-ard"/>
+                                    <constraint firstItem="y2b-HG-vxi" firstAttribute="trailing" secondItem="imo-rQ-mPD" secondAttribute="trailing" id="r5p-RJ-vmG"/>
+                                </constraints>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Moon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLO-uk-hIN">
                                 <rect key="frame" x="218" y="44" width="164" height="35"/>
                                 <fontDescription key="fontDescription" name="GillSans-UltraBold" family="Gill Sans" pointSize="28"/>
@@ -50,7 +60,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Moon" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ony-ix-o1e" userLabel="Planet Description">
-                                <rect key="frame" x="160" y="296" width="280" height="23"/>
+                                <rect key="frame" x="160" y="321" width="280" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="280" id="E7s-Wy-ycp"/>
                                 </constraints>
@@ -61,16 +71,12 @@
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="imo-rQ-mPD" firstAttribute="centerX" secondItem="z55-uu-ZL7" secondAttribute="centerX" id="6hB-0F-SHj"/>
+                            <constraint firstItem="Ony-ix-o1e" firstAttribute="top" secondItem="ZCg-Qz-VPF" secondAttribute="bottom" constant="32" id="3Q0-9B-OdF"/>
                             <constraint firstItem="Ony-ix-o1e" firstAttribute="centerX" secondItem="z55-uu-ZL7" secondAttribute="centerX" id="7wD-5z-kR2"/>
-                            <constraint firstItem="y2b-HG-vxi" firstAttribute="trailing" secondItem="imo-rQ-mPD" secondAttribute="trailing" id="DVs-O6-Zgi"/>
+                            <constraint firstItem="ZCg-Qz-VPF" firstAttribute="centerX" secondItem="z55-uu-ZL7" secondAttribute="centerX" id="I8T-Oj-Dia"/>
                             <constraint firstItem="OLO-uk-hIN" firstAttribute="centerX" secondItem="z55-uu-ZL7" secondAttribute="centerX" id="LNb-wI-Lt6"/>
-                            <constraint firstItem="SGT-Bs-PrO" firstAttribute="top" secondItem="imo-rQ-mPD" secondAttribute="top" constant="-6" id="MK3-c5-Gts"/>
-                            <constraint firstItem="y2b-HG-vxi" firstAttribute="top" secondItem="imo-rQ-mPD" secondAttribute="top" constant="8" id="Mcg-NP-QAX"/>
-                            <constraint firstItem="Ony-ix-o1e" firstAttribute="top" secondItem="imo-rQ-mPD" secondAttribute="bottom" constant="35" id="Uiw-C5-sq6"/>
-                            <constraint firstItem="SGT-Bs-PrO" firstAttribute="leading" secondItem="imo-rQ-mPD" secondAttribute="leading" constant="8" id="n2n-pB-MCa"/>
+                            <constraint firstItem="ZCg-Qz-VPF" firstAttribute="top" secondItem="OLO-uk-hIN" secondAttribute="bottom" constant="12" id="Xa9-p6-aBn"/>
                             <constraint firstItem="OLO-uk-hIN" firstAttribute="top" secondItem="z55-uu-ZL7" secondAttribute="top" constant="44" id="nu0-zy-zUk"/>
-                            <constraint firstItem="imo-rQ-mPD" firstAttribute="top" secondItem="OLO-uk-hIN" secondAttribute="bottom" constant="32" id="sjW-sy-JFP"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="u5l-B9-DBr">
@@ -84,6 +90,7 @@
                     <connections>
                         <outlet property="factsButton" destination="y2b-HG-vxi" id="ViQ-De-PWl"/>
                         <outlet property="movieButton" destination="SGT-Bs-PrO" id="FRW-3Y-M1l"/>
+                        <outlet property="planetContentView" destination="ZCg-Qz-VPF" id="fC0-UL-d35"/>
                         <outlet property="planetDescriptionLabel" destination="Ony-ix-o1e" id="tvs-ov-hGJ"/>
                         <outlet property="planetImageView" destination="imo-rQ-mPD" id="lI1-8N-zNb"/>
                         <outlet property="planetTitleLabel" destination="OLO-uk-hIN" id="lnW-CY-pWO"/>

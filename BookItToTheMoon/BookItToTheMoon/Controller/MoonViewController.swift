@@ -15,9 +15,11 @@ import AVKit
 class MoonViewController: PlanetViewController {
 
     
-    @IBOutlet weak var planetImageView: UIImageView!
     @IBOutlet weak var planetTitleLabel: UILabel!
     @IBOutlet weak var planetDescriptionLabel: UILabel!
+    
+    @IBOutlet weak var planetContentView: UIView!
+    @IBOutlet weak var planetImageView: UIImageView!
     @IBOutlet weak var factsButton: UIButton!
     @IBOutlet weak var movieButton: UIButton!
 
@@ -30,9 +32,11 @@ class MoonViewController: PlanetViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // setup planet content view
+        planetContentView.alpha = 0.0
+        
         // setup imageView
         planetImageView.image = moon.planetImage
-        planetImageView.alpha = 0.0
         planetImageView.contentMode = .ScaleAspectFit
         
         // setup labels
@@ -54,10 +58,10 @@ class MoonViewController: PlanetViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        // fade in planet image
+        // fade in planet view
         UIView.animateWithDuration(1.0, delay: 0.0, options: [.CurveEaseInOut], animations: {
             // fade in planet
-            self.planetImageView.alpha = 1.0
+            self.planetContentView.alpha = 1.0
             }, completion: nil)
         
         // fade in title, description
@@ -77,7 +81,7 @@ class MoonViewController: PlanetViewController {
         
         // fade in details and other actions
 //        animateGradientBackground()
-        startPlanetRotation(planetImageView)
+        startPlanetRotation(planetContentView: planetContentView)
         
     }
     
@@ -88,10 +92,10 @@ class MoonViewController: PlanetViewController {
         rotateButtonsTowardsPlanet(buttons: [factsButton, movieButton])
     }
     
-    private func startPlanetRotation(planetImageView: UIImageView) {
+    private func startPlanetRotation(planetContentView contentView: UIView) {
         
         // check if the animation is already known
-        guard planetImageView.layer.animationForKey("rotationAnimation") == nil else {
+        guard contentView.layer.animationForKey("rotationAnimation") == nil else {
             print("rotaton Animation on planet is active.")
             return
         }
@@ -103,7 +107,7 @@ class MoonViewController: PlanetViewController {
         rotationAnimation.removedOnCompletion = false
         rotationAnimation.repeatCount = Float(CGFloat.max)
         rotationAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
-        planetImageView.layer.addAnimation(rotationAnimation, forKey: "rotationAnimation")
+        contentView.layer.addAnimation(rotationAnimation, forKey: "rotationAnimation")
     }
     
     private func animateGradientBackground() {
@@ -214,12 +218,10 @@ extension MoonViewController {
     
     @IBAction func planetFactsButtonPressed(sender: UIButton) {
         
-        performSegueWithIdentifier(showPlanetFactsSegueIdentifier, sender: nil)
     }
 
     @IBAction func movieButtonPressed(sender: UIButton) {
         
-        performSegueWithIdentifier(presentVideoSegueIdentifier, sender: nil)
     }
     
     @IBAction func poemButtonPressed(sender: UIButton) {
@@ -235,3 +237,39 @@ extension MoonViewController {
     }
 }
 
+
+
+// MARK: - Touch Handling
+
+extension MoonViewController {
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
+        guard let touch = touches.first else {
+            return
+        }
+        
+        let myTouchLocation = touch.locationInView(view)
+        
+        // all flag buttons
+        let flagButtons = [factsButton!, movieButton!]
+        for flagButton in flagButtons {
+            
+            let flagButtonFrameConverted = (planetContentView.layer.presentationLayer() as! CALayer).convertRect((flagButton.layer.presentationLayer() as! CALayer).frame, toLayer: view.layer)
+            
+            let touchIsInButtonRect = CGRectContainsPoint(flagButtonFrameConverted, myTouchLocation)
+
+            switch (touchIsInButtonRect, flagButton) {
+            
+            case (true, movieButton):
+                performSegueWithIdentifier(presentVideoSegueIdentifier, sender: nil)
+                
+            case (true, factsButton):
+                performSegueWithIdentifier(showPlanetFactsSegueIdentifier, sender: nil)
+                
+            default:
+                break
+            }
+        }
+    }
+}
