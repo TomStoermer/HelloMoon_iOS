@@ -13,6 +13,9 @@ import GLKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var starMap: StarMap!
+	
+	@IBOutlet weak var headingLabel: UILabel!
+	
     @IBOutlet weak var rollValueLabel: UILabel!
     @IBOutlet weak var pitchValueLabel: UILabel!
     @IBOutlet weak var yawValueLabel: UILabel!
@@ -22,6 +25,8 @@ class ViewController: UIViewController {
 	@IBOutlet weak var segmentedControl: UISegmentedControl!
     
     let presentPlanetSegueIdentifier = "presentPlanet"
+	
+	private let locationService = LocationService()
 
 
     // IMPORTANT: An app should create only a single instance of the CMMotionManager class
@@ -30,8 +35,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        motionManager.deviceMotionUpdateInterval = 1/40
-        motionManager.gyroUpdateInterval = 1/60
+		motionManager.deviceMotionUpdateInterval = 1/40
+		motionManager.gyroUpdateInterval = 1/60
         // Do any additional setup after loading the view, typically from a nib.
 		
 		// moon Test:
@@ -48,6 +53,9 @@ class ViewController: UIViewController {
         
         startDeviceMotion()
 //        startDeviceGyro()
+		
+		self.locationService.delegate = self
+		self.locationService.startLocationUpdates()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -55,6 +63,7 @@ class ViewController: UIViewController {
         
         motionManager.stopDeviceMotionUpdates()
         motionManager.stopGyroUpdates()
+		locationService.stopLocationUpdates()
         
     }
 
@@ -83,7 +92,7 @@ extension ViewController {
                 return
             }
 			
-            print("Attitude: - \(deviceMotion.attitude)")
+			//print("Attitude: - \(deviceMotion.attitude)")
             
 			//print(deviceMotion.rotationRate)
             
@@ -109,7 +118,7 @@ extension ViewController {
 			}
 			
 			self?.starMap.calcMovementFromAccel(deviceMotion.gravity)
-			self?.starMap.calcMovementFromAttitude(deviceMotion.attitude)
+			//self?.starMap.calcMovementFromAttitude(deviceMotion.attitude)
             
         }
     }
@@ -217,4 +226,11 @@ extension ViewController {
         performSegueWithIdentifier(presentPlanetSegueIdentifier, sender: nil)
     }
     
+}
+
+extension ViewController : LocationServiceDelegate {
+	func didUpdateHeading(heading: Double) {
+		self.headingLabel.text = "\(heading)"
+		self.starMap.calcMovementFromHeading(heading)
+	}
 }
