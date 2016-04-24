@@ -17,7 +17,7 @@ class StarMap : UIScrollView {
 	@IBInspectable
 	private var imageFromSB : UIImage?
 	
-	private let bgImageName = "degree" //"examplecluster"
+	private let bgImageName = "stars" //"examplecluster"
 	
 	var currentPos = CGPoint(x: 0, y: 0)
 	var moonPosition = CGPoint(x: 0, y: 0)
