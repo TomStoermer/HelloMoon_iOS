@@ -44,6 +44,7 @@
 		C419DDC11CCCC7BB00F73BA3 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		C419DDC51CCCD10E00F73BA3 /* MoonMovie.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = MoonMovie.mp4; sourceTree = "<group>"; };
 		507DE9E01CCCCBAC003411FD /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		C419DDC81CCCD97700F73BA3 /* FlagButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlagButton.swift; sourceTree = "<group>"; };
 		C4FD55AB1CCA73DE009C68D8 /* BookItToTheMoon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookItToTheMoon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4FD55AE1CCA73DE009C68D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4FD55B01CCA73DE009C68D8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +87,7 @@
 		50555E891CCA8C2D0045D66C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C419DDC71CCCD94900F73BA3 /* Buttons */,
 				C4FD55E31CCBDE8B009C68D8 /* Planet Facts */,
 				50555E8A1CCA8C340045D66C /* StarMap */,
 			);
@@ -107,6 +109,15 @@
 				C419DDBE1CCCC76500F73BA3 /* AVFoundation.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C419DDC71CCCD94900F73BA3 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				C419DDC81CCCD97700F73BA3 /* FlagButton.swift */,
+			);
+			name = Buttons;
+			path = View/Buttons;
 			sourceTree = "<group>";
 		};
 		C4FD55A21CCA73DE009C68D8 = {
@@ -305,6 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4FD55DD1CCBBECA009C68D8 /* MoonFact.swift in Sources */,
+				C419DDC91CCCD97700F73BA3 /* FlagButton.swift in Sources */,
 				C4FD55EC1CCBDF11009C68D8 /* PlanetFactReasonCell.swift in Sources */,
 				C4FD55D91CCBBB14009C68D8 /* JSONRequester.swift in Sources */,
 				C4FD55C91CCB9091009C68D8 /* Moon.swift in Sources */,
