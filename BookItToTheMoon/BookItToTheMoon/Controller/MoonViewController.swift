@@ -180,12 +180,13 @@ class MoonViewController: PlanetViewController {
             AVPlayerViewController
             playerVC.allowsPictureInPicturePlayback = false
 
+            // stop current sound
+            audioPlayer?.stop()
+            
             // set the movie source
             let movieURL = NSBundle.mainBundle().URLForResource("MoonMovie", withExtension: "mp4")
             playerVC.player = AVPlayer(URL: movieURL!)
-            
-            // stop sound
-            audioPlayer?.stop()
+            playerVC.player?.play()
                         
         default:
             break
